@@ -2,6 +2,8 @@
 
 This repository contains all publicly known hints for GSMG.IO 5 BTC puzzle challenge. Contributions are welcome!
 
+_**Unverified Solutions**_: If you have an unverified solution, please submit a PR modifying a file in the [./unverified](./unverified/) folder. Please don't submit Claude/ChatGPT generated solutions, they tend not to be valid or even useful.
+
 If you find this useful, please donate BTC at [bc1qla7lmz3guzz3cezhfl72r0w546a4gyacpu530r](https://www.blockchain.com/btc/address/bc1qla7lmz3guzz3cezhfl72r0w546a4gyacpu530r)
 
 
