@@ -60,11 +60,25 @@ thepassword) = the "seven intertwined passwords".
   lastwords / thispassword variants — oracle-verified against all three blobs.
   No prize key, no printable plaintext. (`experiments.py`, `focused_sweep.py`.)
 
-## Most promising untried directions
+## VIC checkerboard: convention nailed, but STR_A/STR_B don't yield
 
-1. **Straddling checkerboard / VIC on STR_A** using 2,3,5,7 as prefix digits
-   (same cipher family as Phase 3.2; the alphabet may be one already derived,
-   e.g. `fubcdora/lethingkymvpszjqwx.`).
+`solver/checkerboard.py` now reproduces the **Phase 3.2 VIC exactly**: a
+10-column straddling checkerboard, alphabet `fubcdora/lethingkymvpszjqwx.`,
+**prefix digits (1, 4)** — literally the hint *"one for one, four for one"* —
+decodes the phase-3.2 numbers to `incaseyoumanagetocrackthistheprivatekeys…`.
+
+Applying that exact, validated decoder to STR_A / STR_B was the strongest lead.
+**Result: negative.** Across every prefix pair drawn from {2,3,5,7}, both digit
+mappings (`a–i → 1–9` and `a–i → 0–8`), and forward/reversed input, no decode
+produces English (best English-word score = 2, i.e. coincidental fragments). So
+**if STR_A/STR_B are VIC-enciphered, they use a different keyed alphabet** that we
+have no crib for yet — or they are not a straddling checkerboard at all.
+
+## Most promising still-untried directions
+
+1. **Find STR_A/STR_B's checkerboard alphabet.** The Phase 3.2 alphabet came from
+   a clear-text phrase ("fubcd-king & oracle-queen, thingky mvps"). There may be
+   an analogous phrase for this stage we haven't identified.
 2. STR_A as message + STR_B as a running key under a **non-additive** combiner
    (the yin-yang/duality framing: the two strings are the two halves).
 3. STR_A digits as **indices into the Architect speech** (the "in front of your

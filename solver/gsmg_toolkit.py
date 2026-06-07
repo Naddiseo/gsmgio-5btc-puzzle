@@ -285,6 +285,13 @@ def selftest():
     except Exception as e:  # pragma: no cover
         print(f"[SKIP] btc oracle ({e})")
 
+    # VIC straddling-checkerboard decoder (reproduces Phase 3.2)
+    try:
+        from checkerboard import selftest as cb_selftest
+        check("VIC checkerboard reproduces phase3.2", cb_selftest())
+    except Exception as e:  # pragma: no cover
+        print(f"[SKIP] checkerboard ({e})")
+
     # Puzzle image (needs PIL/numpy + puzzle.png; skip if absent)
     try:
         grid = read_grid()
