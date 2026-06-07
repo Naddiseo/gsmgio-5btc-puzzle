@@ -37,6 +37,47 @@ AES_SALPHASEION = (
     "QvX0t8v3jPB4okpspxebRi6sE1BMl5HI8Rku+KejUqTvdWOX6nQjSpepXwGuN/jJ"
 )
 
+# Cosmic Duality: the large AES blob shown under the "Cosmic Duality" header on
+# the SalPhaseIon page (gsmg.io/89727c...). 1328 ciphertext bytes -> big enough
+# for a message plus the two private keys. This is the actual final payload.
+# Source: gsmg-archive.org backup of the live page.
+AES_COSMIC_DUALITY = (
+    "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"
+)
+
+ALL_BLOBS = {
+    "phase3.2": AES_PHASE32,
+    "salphaseion": AES_SALPHASEION,
+    "cosmic_duality": AES_COSMIC_DUALITY,
+}
+
 # SalPhaseIon: the two big, still-unsolved base-9 (a..i) strings, with the
 # decoded `matrixsumlist` instruction sitting between them.
 SALPH_STR_A = (
@@ -228,6 +269,21 @@ def selftest():
         pt = openssl_decrypt(blob, passph)
         check("AES phase3.2 decrypts to Architect intro",
               pt is not None and pt.startswith(b"I've been waiting for you"))
+
+    # Cosmic Duality blob is well-formed (catches any transcription error)
+    raw = base64.b64decode(AES_COSMIC_DUALITY)
+    check("cosmic duality blob valid (Salted__, 1328-byte ct)",
+          raw[:8] == b"Salted__" and len(raw) == 1344 and (len(raw) - 16) % 16 == 0)
+
+    # Address oracle vectors (privkey=1)
+    try:
+        from btc import privkey_to_addresses
+        c, u = privkey_to_addresses(1)
+        check("btc oracle: secp256k1 -> address vectors",
+              u == "1EHNa6Q4Jz2uvNExL497mE43ikXhwF6kZm" and
+              c == "1BgGZ9tcN4rm9KBzDn7KprQz87SZ26SAMH")
+    except Exception as e:  # pragma: no cover
+        print(f"[SKIP] btc oracle ({e})")
 
     # Puzzle image (needs PIL/numpy + puzzle.png; skip if absent)
     try:

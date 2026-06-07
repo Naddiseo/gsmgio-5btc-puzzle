@@ -1,30 +1,35 @@
-# The two final AES blobs — structure & negative results
+# The final AES blobs — structure & negative results
 
 **Status:** unsolved. This file records structural facts and the password
 attempts already ruled out, so they are not endlessly re-tried.
 
-## The two blobs
+## The three blobs
 
-There are exactly two OpenSSL `Salted__` AES-256-CBC blobs left at the end of the
-two terminal branches of the puzzle:
+There are three OpenSSL `Salted__` AES-256-CBC blobs at the terminal stages:
 
 ```
-# end of Phase 3.2
+# end of Phase 3.2 (80 ct bytes)
 U2FsdGVkX1+0Wl49gnWTyiimluu7V3+vl7st0gUt9sWDzNLxDmlPMsDSiuW2a46z
 gKlIi8aaqY5gpJPPEzW1n9n3/26qs4zstWtPKF8Zs/BTNN4IiEh4qu18mdC0NAv4
 
-# inside SalPhaseIon
+# inside SalPhaseIon (80 ct bytes)
 U2FsdGVkX186tYU0hVJBXXUnBUO7C0+X4KUWnWkCvoZSxbRD3wNsGWVHefvdrd9z
 QvX0t8v3jPB4okpspxebRi6sE1BMl5HI8Rku+KejUqTvdWOX6nQjSpepXwGuN/jJ
+
+# "Cosmic Duality" header on the SalPhaseIon page (1328 ct bytes) -- the big one
+# full text: ../cosmic-duality-assets/cosmic-duality-aes.txt
+U2FsdGVkX18tP2/gbclQ5tNZuD4shoV3axuUd8J8aycGCAMoYfhZK0JecHTDpTFe ...
 ```
 
 ## Structural facts
 
-- Both base64 strings are **128 chars → 96 bytes**.
-- Layout = `Salted__` (8) + salt (8) + **80 bytes ciphertext**.
-- 80 ciphertext bytes ⇒ **64–79 bytes of plaintext** (after PKCS#7 padding).
+- The two small blobs are **128 chars → 96 bytes**:
+  `Salted__` (8) + salt (8) + **80 bytes ciphertext** ⇒ 64–79 plaintext bytes.
+- **Cosmic Duality** is **1792 chars → 1344 bytes**: `Salted__` + salt +
+  **1328 ct bytes** (83 AES blocks). Big enough for a message *and* both keys —
+  this is the most likely final container.
 - A raw Bitcoin private key in hex is **exactly 64 chars**, which pads to 80.
-  A WIF key is 51–52 chars. Both fit.
+  A WIF key is 51–52 chars. Both fit the small blobs.
 - The Phase 3.2 VIC-cipher line decoded to:
   *"IN CASE YOU MANAGE TO CRACK THIS THE PRIVATE KEYS BELONG TO HALF AND BETTER
   HALF AND THEY ALSO NEED FUNDS TO LIVE"* — note **keys**, plural, and the prize
@@ -44,6 +49,19 @@ openssl aes-256-cbc -a -d            # default KDF = sha256 on modern openssl
 
 So a correct guess of the *plaintext* password `P` should make
 `try_password(blob, P)` return printable bytes.
+
+## Verification oracle (new)
+
+The destination addresses are known, so we don't have to guess whether a
+decryption "looks right": derive the address from any candidate key and compare.
+
+- `1GSMG1JC9wtdSwfwApgj2xcmJPAwx7prBe` — "half"
+- `17ucy1K9ZUAaoY6JVtM932W9jUp5LXfyHa` — "better half"
+
+`solver/btc.py` implements pure-Python secp256k1 → P2PKH and scans a plaintext
+for 64-hex / WIF / raw-32-byte keys, checking each against both addresses (both
+compressed and uncompressed). `solver/experiments.py` runs every password attempt
+through this oracle automatically.
 
 ## Attempts ruled out (no printable plaintext, both blobs, sha256 & md5 KDF)
 

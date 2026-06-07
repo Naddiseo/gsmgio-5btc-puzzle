@@ -165,6 +165,31 @@ To solve decentraland hint:
 
 This stage is currently unsolved.
 
+"Cosmic Duality" is the large AES-256-CBC blob displayed under that header on the
+[SalPhaseIon page](https://gsmg.io/89727c598b9cd1cf8873f27cb7057f050645ddb6a7a157a110239ac0152f6a32)
+(backup mirror: [gsmg-archive.org](https://gsmg-archive.org/)). It is **1328
+ciphertext bytes** — far larger than the small phase-3.2 / SalPhaseIon blobs, and
+large enough to hold a message plus the two private keys. This is almost
+certainly the **final payload**. The full blob is captured at
+[cosmic-duality-assets/cosmic-duality-aes.txt](./cosmic-duality-assets/cosmic-duality-aes.txt)
+and as a constant in [solver/](./solver/). The password to decrypt it is the
+master password assembled from the [2023-02-23 recipe](#2023-02-23---official-hint)
+(`yellow blue primes matrixsumlist lastwordsbeforearchichoice yinyang … thepassword`).
+
+### The two prize addresses ("half" and "better half")
+
+The phase-3.2 VIC cipher decoded to *"the private keys belong to **half** and
+**better half**…"* — i.e. two keys for two people (the creator and partner). They
+map to the two on-chain addresses, whose split has tracked the BTC halvings:
+
+| Address | Role | At launch | 2020 halving | 2024 halving |
+|---------|------|-----------|--------------|--------------|
+| [1GSMG1JC9wtdSwfwApgj2xcmJPAwx7prBe](https://www.blockchain.com/btc/address/1GSMG1JC9wtdSwfwApgj2xcmJPAwx7prBe) | "half" | best-half (5 BTC) | half / equal-half | half |
+| [17ucy1K9ZUAaoY6JVtM932W9jUp5LXfyHa](https://www.blockchain.com/btc/address/17ucy1K9ZUAaoY6JVtM932W9jUp5LXfyHa) | the other | no-half (0) | equal-half | better-half (3.75 BTC) |
+
+Because the destination addresses are known, **any candidate private key can be
+verified instantly** — see the address oracle in [solver/btc.py](./solver/btc.py).
+
 # Further Hints and 2020-present Timeline
 
 At the end of 2019, and early 2020, no one had publicly made progress passed the AES blob in phase 3.2. The following are either official hints, or various quotes that _might_ be hints.

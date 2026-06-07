@@ -23,7 +23,7 @@ Everything claimed here as *validated* is reproduced by code:
 | SalPhaseIon (via `sha256` of image text) | several decoded fragments + 1 AES blob + 2 base-9 strings | ⚠️ partial |
 | **SalPhaseIon base-9 strings** | ? | ❌ unsolved |
 | **SalPhaseIon AES** | private key? | ❌ unsolved |
-| Cosmic Duality | ? | ❌ unsolved |
+| **Cosmic Duality AES** (1328 ct bytes) | the two private keys? | ❌ unsolved — the main target |
 
 There are **two parallel terminal branches** — the main chain (…→ Phase 3.2) and
 SalPhaseIon (reached by hashing the cover image text). The community consensus
@@ -36,9 +36,18 @@ Duality is its capstone.
 
 All of this is in `solver/gsmg_toolkit.py` as named constants.
 
-### 2a. Two AES blobs (one per branch)
-See `unverified/final-aes-blobs.md`. Both are AES-256-CBC, decrypt to 64–79
-plaintext bytes (private-key sized). Scheme: `passphrase = sha256(password)`.
+### 2a. Three AES blobs
+See `unverified/final-aes-blobs.md`. All AES-256-CBC, scheme
+`passphrase = sha256(password)`:
+- `AES_PHASE32` and `AES_SALPHASEION` — 80 ct bytes each (private-key sized).
+- `AES_COSMIC_DUALITY` — **1328 ct bytes**, the large blob under the "Cosmic
+  Duality" header on the SalPhaseIon page. The likely final payload (message +
+  both keys). Captured in `cosmic-duality-assets/cosmic-duality-aes.txt`.
+
+**Verification oracle:** the two destination addresses are known
+(`1GSMG…` / `17ucy…`), so any candidate private key in a decrypted blob can be
+confirmed immediately — `solver/btc.py` derives the address from a key and checks
+it. This turns "does this password work?" from a guess into a definitive test.
 
 ### 2b. Two SalPhaseIon base-9 strings (`a`–`i`, the real bottleneck)
 - `SALPH_STR_A` — 91 chars, **skewed** distribution (b,e,g common; a,d,i rare).

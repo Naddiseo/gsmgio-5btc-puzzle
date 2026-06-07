@@ -13,8 +13,13 @@ often-broken `cryptography` wheel.
   - `try_password(blob, password)` → AES attempt using the creator's scheme
     (`passphrase = sha256(password)`, `aes-256-cbc -a -d`)
   - constants: `AES_PHASE32`, `AES_SALPHASEION`, `SALPH_STR_A`, `SALPH_STR_B`
-- **`experiments.py`** — the recipe-driven AES password sweep (currently all
-  negative; see `../unverified/final-aes-blobs.md`).
+- **`btc.py`** — verification oracle. Pure-Python secp256k1 → P2PKH address, plus
+  helpers to pull candidate keys (64-hex / WIF / raw 32-byte) out of a plaintext
+  and check them against the two prize addresses. `python3 btc.py` runs its own
+  test vectors.
+- **`experiments.py`** — recipe-driven AES password sweep across all three blobs,
+  with every result run through the oracle (currently all negative; see
+  `../unverified/final-aes-blobs.md`).
 
 ## Quick start
 
