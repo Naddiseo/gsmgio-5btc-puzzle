@@ -20,6 +20,12 @@ often-broken `cryptography` wheel.
 - **`experiments.py`** — recipe-driven AES password sweep across all three blobs,
   with every result run through the oracle (currently all negative; see
   `../unverified/final-aes-blobs.md`).
+- **`focused_sweep.py`** — narrower sweep using the confirmed prime set {2,3,5,7}
+  (all permutations) and yinyang/duality values, oracle-verified.
+- **`strab_sweep.py`** — transformation sweep of the two unsolved base-9 strings
+  STR_A/STR_B (base conversions, matrix sums, duality combiners), each candidate
+  scored for English and tried as an AES password. See
+  `../unverified/salphaseion-strings-and-primes.md`.
 
 ## Quick start
 

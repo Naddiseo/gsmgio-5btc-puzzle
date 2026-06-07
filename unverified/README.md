@@ -7,4 +7,5 @@ This folder contains a list of currently unverified, or unverifiable, solutions 
 | --------------|-------|------| ------------|
 | 1141 Coincidence | Phase 3.2 | [1141 Slice](./phase3.2_1141.md)| coincidence |
 | Yellow/Blue numbers | Phase 0 / 2020 hint | [yellow-blue-2020-hint.md](./yellow-blue-2020-hint.md) | Reproducible decode of the 2020-01-14 hint: coloured squares mark each byte's LSB; Yellow=9, Blue=15 |
-| Final AES blobs | Phase 3.2 / SalPhaseIon | [final-aes-blobs.md](./final-aes-blobs.md) | Structure of the two terminal AES blobs + documented negative password attempts |
+| Final AES blobs | Phase 3.2 / SalPhaseIon / Cosmic Duality | [final-aes-blobs.md](./final-aes-blobs.md) | Structure of the three terminal AES blobs, the address oracle, and documented negative password attempts |
+| SalPhaseIon strings + primes | SalPhaseIon | [salphaseion-strings-and-primes.md](./salphaseion-strings-and-primes.md) | The two unsolved base-9 strings; primes confirmed = {2,3,5,7}; transforms & sweeps ruled out |

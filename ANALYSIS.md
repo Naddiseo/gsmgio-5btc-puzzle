@@ -84,13 +84,17 @@ Read as an ordered ingredient list for the final password:
 
 | Slot | Resolves to | Confidence |
 |------|-------------|-----------|
-| `yellow` | **9** (or its spelled/letter forms) | NEW — see below |
-| `blue` | **15** (or its spelled/letter forms) | NEW — see below |
-| `primes` | a prime number, not yet derived | unknown |
+| `yellow` | **9** (or its spelled/letter forms) | decoded — see §4 |
+| `blue` | **15** (or its spelled/letter forms) | decoded — see §4 |
+| `primes` | an arrangement of **{2, 3, 5, 7}** | set confirmed by hint; arrangement unknown |
 | `matrixsumlist` | result of operating on STR_A/STR_B | unknown |
 | `lastwordsbeforearchichoice` | literal string, or the actual last words before Neo's choice | ambiguous |
-| `yinyang` | Cosmic Duality token | unknown |
+| `yinyang` | Cosmic Duality — the two halves (STR_A/STR_B?) | unknown |
 | `thepassword` | "in front of your eyes" — possibly `thispassword` | unknown |
+
+The Phase 3.2 speech names the structure: *"reinserting the prime basics … seven
+intertwined passwords"* — and the recipe has exactly **7** slots. Details on the
+prime slot and the two strings: `unverified/salphaseion-strings-and-primes.md`.
 
 ---
 
@@ -112,14 +116,16 @@ This is the first concrete decoding of the first two recipe slots.
 
 ## 5. Most promising next directions
 
-1. **Crack `matrixsumlist` over STR_A/STR_B.** This is the linchpin: it both
-   unlocks a recipe slot and is the only large undecoded data left. Worth trying:
-   columnar transposition keyed by the speech; using STR_A (91, skewed — looks
-   like a *message*) as data and STR_B (570, uniform — looks like a *keystream/
-   pad*) as a key, or vice-versa; the "matrix" being the 7×13 / 13×7 shape of
-   STR_A (note: `matrixsumlist` has 13 letters; 91 = 7×13).
-2. **Derive `primes`.** Hints repeatedly stress a prime. Candidates to chase: a
-   prime hidden in the speech word/letter counts, or in the grid coordinates.
+1. **Crack `matrixsumlist` over STR_A/STR_B.** This is the linchpin. STR_A's
+   frequent digits are exactly the primes 2,3,5,7 (b,c,e,g), so the strongest
+   untried lead is a **straddling-checkerboard / VIC** read (same family as Phase
+   3.2) with 2,3,5,7 as prefix digits. Also: STR_A (message) + STR_B (keystream)
+   under a non-additive combiner; the 7×13 / 13×7 shape of STR_A (`matrixsumlist`
+   has 13 letters; 91 = 7×13). See `unverified/salphaseion-strings-and-primes.md`.
+2. **`primes` = {2,3,5,7}** is confirmed; the open question is the *arrangement*
+   ("too many combinations"). All 24 permutations of `2357` as a password slot
+   are already ruled out, so it likely feeds the cipher in #1 rather than being a
+   literal substring.
 3. **Re-read the grid as 4 symbols** (white/black/yellow/blue) per "a whole lot
    more", not just binary.
 4. **`yinyang` / Cosmic Duality.** Inspect `salphaseion-assets/` and the
