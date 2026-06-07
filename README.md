@@ -2,6 +2,9 @@
 
 This repository contains all publicly known hints for GSMG.IO 5 BTC puzzle challenge. Contributions are welcome!
 
+📋 **[ANALYSIS.md](./ANALYSIS.md)** — a concise "head to toe" map of what is solved, the exact remaining unsolved data, and the most promising next directions.
+🧰 **[solver/](./solver/)** — a small reproducible toolkit. `python3 solver/gsmg_toolkit.py selftest` re-derives every known-solved step from raw data.
+
 _**Unverified Solutions**_: If you have an unverified solution, please submit a PR modifying a file in the [./unverified](./unverified/) folder. Please don't submit Claude/ChatGPT generated solutions, they tend not to be valid or even useful.
 
 If you find this useful, please donate BTC at [bc1qla7lmz3guzz3cezhfl72r0w546a4gyacpu530r](https://www.blockchain.com/btc/address/bc1qla7lmz3guzz3cezhfl72r0w546a4gyacpu530r)
@@ -182,7 +185,10 @@ It might have shown you only one door, beware that the rabbits nest may contain 
 Hush hush.
 ```
 
-Unfortunately, no one publicly managed to decode it
+A reproducible decode is now available in [unverified/yellow-blue-2020-hint.md](./unverified/yellow-blue-2020-hint.md):
+the 14×14 grid's coloured squares are exactly the 8th bit (LSB) of each of the 24 bytes of `gsmg.io/theseedisplanted`
+(all on multiples of 8). Yellow = LSB 0 (even ASCII), Blue = LSB 1 (odd ASCII), giving **Yellow = 9, Blue = 15** —
+the first two ingredients of the [2023-02-23 final-password recipe](#2023-02-23---official-hint).
 
 ## 2020-02-20 Hint
 
