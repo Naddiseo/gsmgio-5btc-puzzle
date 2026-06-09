@@ -34,6 +34,8 @@ passwords … bruteforcing might be required"* — and the recipe has exactly 7 
 | STR_A/STR_B: primality bitmask; "zero out" prime/nonprime digits/indices then decimal→hex→ascii; zero each single/pair of letters | inline | no ASCII |
 | STR_A/STR_B: primality of decimal & base-9 integers | inline | not prime |
 | Grid "second door": spiral cw/ccw, row/col-major, boustrophedon × 5 colour→bit maps × reversal × 8 offsets | inline | only the known `gsmg.io/theseedisplanted` |
+| STR_A/STR_B: keyed checkerboard alphabets from every decoded keyword (matrixsumlist, lastwords, thispassword, salphaseion, …) × prime prefixes × reversal | inline | no English |
+| `matrixsumlist` = phase-0 grid sums (binary, 4-colour, yellow=9/blue=15 value schemes), rows/cols → A1Z26 / ascii | inline | no readable list |
 | First-hint-derived passwords (9/15/2357 combos, roses poem, image text hash) | inline | no prize |
 
 ## Hints newly mined this session
