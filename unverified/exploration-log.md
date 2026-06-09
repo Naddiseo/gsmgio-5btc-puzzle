@@ -48,6 +48,32 @@ passwords … bruteforcing might be required"* — and the recipe has exactly 7 
 - **2023-01-12**: "theory of everything … is a valid path."
 - **2024-04-10**: "1357 blocks to go" (note the odd digits 1,3,5,7).
 
+## Strategic hints (mined from the hint archive)
+
+- **2023-08-06-3** (likely the last hint): *"Once you hit a 'ying yang', you'll be
+  able to solve it the same day."* → the **yin-yang is the single unlock**; once
+  reached, the remaining "very last step is a true give away." The whole puzzle
+  hinges on this one realization about duality / two halves.
+- **2023-08-06-4**: *"Has anyone passed the salvation part?" "Partly."* — the
+  "salvation part" = the Architect's two-door choice ("the source and the
+  salvation of Zion"). And the creator wants "the last scene of Mr. Robot" — a
+  story about a person's **duality**. Every recent hint points at duality.
+- **Segmentation verified**: STR_A(91) + matrixsumlist(104) + STR_B(570) = 765 =
+  the first `z` delimiter exactly. STR_A/STR_B are the only undecoded data.
+
+## More ruled out (yin-yang / duality round)
+
+- Combining the two halves every way: `A+B`, `B+A`, `A+reverse(A)`, splitting
+  STR_B into 285+285 and combining (add/sub/Beaufort mod 9, with rotational
+  reverse) — then decimal→hex→ascii. No ASCII.
+- Rendering STR_A/STR_B as grayscale images at every aspect ratio (7×13, 13×7,
+  19×30, 30×19, 38×15, 15×38, 10×57, 57×10) — pure noise, no yin-yang/pattern.
+- Literal passwords `yinyang/yingyang/taijitu/taiji/cosmicduality/
+  SalPhaseIonCosmicDuality` against all blobs — negative.
+- **1718 explicit recipe assemblies** (yellow/blue/primes/matrixsumlist/lastwords/
+  yinyang/thepassword, every spelling) × 2 modes × 2 KDFs × 3 blobs — no prize,
+  no printable plaintext. The password is **not** a literal concatenation.
+
 ## Where the wall is
 
 Every path funnels to **decoding STR_A/STR_B** (the `matrixsumlist` step). All
