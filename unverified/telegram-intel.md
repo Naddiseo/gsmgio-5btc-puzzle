@@ -36,13 +36,21 @@ squares** ("four zeros omitted"). So the `matrix` in `matrixsumlist` resolves to
 (Tested in the recipe password — necessary but not sufficient: `yinyang` and
 `thepassword` values are still unknown, so assemblies still fail.)
 
-### STR_A: 'b' sits at prime positions  ✅ verified
-In `dbbibfbh ccbeg…`, the letter **`b` is at positions 2,3,5,7,11** — the first
-five primes — then the pattern breaks at 13. Community odds estimate ≈ 9 in
-3.18×10¹¹ for the first 12 chars. Also: 8 of 10 gaps between `be` occurrences are
-prime. This is the concrete signature of the "prime part" / "reinsert the prime
-basics", but **how to exploit it to decode STR_A is still unknown** (removing the
-b's, octal-mapping the remaining 8 symbols, etc. all give garbage).
+### STR_A: 'b' at prime positions — ⚠️ LOCALIZED COINCIDENCE, not signal
+In `dbbibfbh ccbeg…`, `b` does sit at positions 2,3,5,7,11 (first five primes) —
+and the community fixated on this. **But the statistics debunk it as a global
+pattern:**
+- Across all of STR_A, `b` is at a prime position only **7/25 = 28%** of the time
+  (chance = 26.4%). No preference.
+- **STR_B has no prime-marker letter** — every letter sits at ~18% (= chance).
+So the "first 12 chars" observation is a small-number artifact (b is the most
+common letter; primes are dense among small integers). The real "prime part" of
+the recipe is just the token **`primes = {2,3,5,7}`**, not a positional cipher.
+Chasing b-at-primes (removing them, octal-mapping the other 8 symbols, segment
+lengths, zero-insertion) all give garbage — consistent with it being noise.
+
+The actual signal in STR_A is its **skewed frequency** (b=25, e=18 of 91), which
+points at a substitution/structured source — still undecoded. STR_B is ~uniform.
 
 ## Community approaches already tried (all failed)
 
