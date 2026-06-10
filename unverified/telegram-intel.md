@@ -51,6 +51,32 @@ puzzle; matrix sum × multiply as a password; decrypting Cosmic Duality with the
 SalPhaseIon result, with reversed blobs, with hashed answers. "I have zero ideas
 on how to approach dbbi" is the common sentiment — STR_A/STR_B remain the wall.
 
+## Additional clues worth chasing (from the chat)
+
+- **"SalPhaseIon" = "salvation"** ("phase" inserted into salvation). The creator:
+  *"Breaking salphation should give the feeling of the phase's name."* This maps
+  to the Architect's **right door** — "the source and the **salvation** of Zion".
+  So `lastwordsbeforearchichoice` and SalPhaseIon both point at the two-door /
+  Source speech.
+- **"CIAO BELLA O" → Bellaso / Chaocipher?** The Beaufort-decoded speech ends
+  "…ciao bella o" (reverse of the song "o bella ciao"). Community: maybe a hint
+  at the **Bellaso cipher** (a Vigenère precursor) or **Chaocipher**, or simply a
+  "reverse" marker (cf. the 2023-02-23 reversed-binary hint).
+- **dbbi/faed may be recipe slots 6 & 7 themselves** ("unless dbbib is the 6th
+  and faed is the 7th, or them combined is the 6th") — i.e. possibly used
+  directly rather than decoded to ASCII.
+- The chain is believed to be: decode dbbi/faed → complete SalPhaseIon → hash →
+  the SalPhaseIon AES "might lead back to the 3.2.2 AES" → … → Cosmic Duality →
+  reward. An (unverified) GitHub-issue comment claims decrypting Cosmic Duality
+  "using the result of SalPhaseIon" yielded "a long sentence like a lyric."
+
+## Tested from these clues — all negative
+
+matrix number / row-sum list / col-sum list in the recipe; blob-as-password
+duality; letters→nth-prime; zeroing prime positions/values; inserting zeros at
+prime positions; Bellaso-style and 8-symbol reductions of STR_A/STR_B. The
+`dbbi`/`faed` decode and the `yinyang` value remain the universal wall.
+
 ## Open, highest-value question
 
 **What is `yinyang` as a concrete value/operation?** The creator calls it "a very
