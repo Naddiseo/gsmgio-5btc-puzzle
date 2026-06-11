@@ -11,7 +11,7 @@ all counting start points at once.
 """
 import re, itertools
 from mnemonic import Mnemonic
-from check import check_mnemonic
+from fast_check import check_mnemonic
 WL = set(Mnemonic('english').wordlist)
 raw = open("assets/article.txt").read()
 text = " ".join(l for l in raw.split("\n"))

@@ -11,7 +11,7 @@ Also tries the simpler "first letter of each word" over the whole article.
 """
 import re, sys
 from mnemonic import Mnemonic
-from check import check_mnemonic
+from fast_check import check_mnemonic
 WL = Mnemonic('english').wordlist
 WLSET = set(WL)
 # index BIP39 words by length for fast segmentation
