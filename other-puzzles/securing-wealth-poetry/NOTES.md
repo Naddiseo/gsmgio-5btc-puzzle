@@ -41,12 +41,15 @@ entirely in the first ~119 words of wherever word-counting starts.
 - **Printed "Seed Phrase" example** `witch collapse practice feed shame open
   despair creek road again ice least` → **fails BIP39 checksum**. Definitively a
   decoy, not the wallet seed.
-- **GPS method** over starts {body, title, "Revolution"} × tokenizations
-  {alpha, alpha+numbers, whitespace}: several decade-windows contain **zero**
-  BIP39 words (e.g. words 1–9 "my grandfather known to me as ye-ye was" — none
-  are seed words), so **no GPS coordinate can yield 12 valid words** under those
-  tokenizations. Where coverage existed, ~93 checksum-valid extractions were
-  derived and checked — **none** hit the target.
+- **GPS method — broadly ruled out.** The decade-window search covers *every
+  possible landmark coordinate at once* (one word per digit-window k, position
+  ∈ [10k,10k+9]). `tok_sweep.py` swept 7 start points × header/short-line
+  filters × 5 tokenizers. Only **15** tokenizations even make GPS *possible*
+  (every decade window holds ≥1 BIP39 word); across all of them **399**
+  checksum-valid extractions were derived over 9 paths (incl. BIP44/49/84) —
+  **none** hit the target. Combined with the 2-digit-degree ≤119 bound, this is
+  strong evidence the seed is **not** placed by the GPS method (or the author
+  used a tokenization/word-pool outside this broad sweep).
 - **The two explicit example index lists** (story & GPS) applied to the main
   article (base-0 and base-1): no valid seed.
 - **Numbers/dates as phone-method positions**: no clean seed.
