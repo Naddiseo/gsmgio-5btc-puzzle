@@ -81,6 +81,23 @@ the `1865-202?` date) to pin down sequence.
   checksum, **none** derived to the target address. So our current word/order
   guess is wrong — as expected.
 
+## Brute-force expected-value verdict (why we stopped)
+
+`fastsearch.py` is correct and fast (coincurve/libsecp256k1, cross-checked
+against the documented test-vector address `1LqBGSKuX5yYUonjxT5qGfpUsXKYYWeabA`).
+Measured throughput ~7.5k orderings/sec/core under load. A single *fully known*
+12-word set's 12! orderings ≈ **4-8 h wall** on 4 cores (most cost is the
+PBKDF2 seed derivation on the ~1/16 checksum-valid orderings, across 6 paths).
+
+But the prior per guessed set is tiny: pool ≈ 15 plausible words, only 9 are
+visually confirmed, so 12-word subsets = C(15,12)=455 *if the pool even
+contains all true words*. 455 × ~6 h ≈ 100+ days, with no guarantee. So blind
+enumeration over guessed sets is **not viable**. The tooling's real role is a
+**confirmer**: the instant a human pins the exact word set + clue-derived order,
+`fastsearch.py`/`solver.py` verify it in seconds. Also note: the title is
+"BRAVE **NEW** WORLD" and "new" is not a BIP39 word — evidence the title words
+were chosen for theme, not as seed words.
+
 ## What the runes actually contribute (already published)
 
 The runic blocks decode (per community) to *meta-instructions*, NOT new seed
