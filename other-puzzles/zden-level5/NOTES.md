@@ -54,6 +54,19 @@ row/col coefficients (rows `[0,9,1,1,1,8,1,9]`, cols `[1,1,1,2,2,1,1,1]`).
   verified directly against the address. (Covers the hint's `-1·x+64` and plain
   `%256`.) Result: see below.
 
+## Definitive negative results from this workspace
+
+- **All linear transforms eliminated.** `solve4.py` swept **1,572,864** maps
+  `byte=(m·S+c) mod {256,255}` for every m,c over all 4 documented pairings × 3
+  area types, checked against the address: **no match**. So the "more
+  operations" is *non-linear* (division/normalization, nibble-concatenation,
+  or per-cell coefficients) — affine-mod-256 is dead regardless of how the hint
+  box is read.
+- **Known-plaintext appears non-literal.** Treating `09111819`/`11122111` as the
+  key's first/last 4 bytes is **inconsistent** with `S mod 256` (and `S//k`) for
+  every documented pairing/area (best 2/8, spurious). So either that string is
+  not literal key bytes, or the pairing/order is none of the 4 documented ones.
+
 ## Status / open leads
 
 The bottleneck is the exact "more operations" formula in the hint box. If it is
