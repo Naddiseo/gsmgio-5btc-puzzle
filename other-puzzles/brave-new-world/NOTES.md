@@ -69,6 +69,25 @@ set itself is ambiguous. Progress requires the puzzle's own ordering signal
 (the rune instructions, the numbers 1–5, the "sum of two numbers", "number X",
 the `1865-202?` date) to pin down sequence.
 
+## Feasibility verdict (measured)
+
+- One candidate check (BIP39 seed + a few BIP32 derivations) ≈ **2 ms / core**.
+- Orderings of a *single known* 12-word set = 12! = 479,001,600 ≈ **293
+  core-hours**. We don't know the exact set, word count, duplicates, or
+  passphrase, so blind enumeration is **infeasible** — this is the same wall
+  the community has hit for 6 years. `bruteforce.py` is therefore a *targeted*
+  checker (fill in fixed words, float only a few unknown slots), not a cracker.
+- Confirmed: of 120 orderings of the best current guess, 6 passed the BIP39
+  checksum, **none** derived to the target address. So our current word/order
+  guess is wrong — as expected.
+
+## What the runes actually contribute (already published)
+
+The runic blocks decode (per community) to *meta-instructions*, NOT new seed
+words: "sum of two numbers", "Tuesday", "number X for a rainy day", "I hope
+many bitcoins are sent here". Re-decoding them won't yield words — they hint at
+**ordering / indices**. The bottleneck is reading the artist's intended order.
+
 ## Next steps
 
 1. Decode runes 1–5 precisely (find the exact rune font / substitution).
