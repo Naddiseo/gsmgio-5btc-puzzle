@@ -49,3 +49,21 @@ explicit. What to *do* with them (where in the password) is still unknown.
 | lastwordsbeforearchichoice | literal / two-door speech | ✓ |
 | yinyang | Cosmic Duality blob | open |
 | thepassword | — | the assembled result |
+
+## Key-extraction attempts (loop iteration — all negative, oracle-checked)
+- half/better strings → base-N (16/24/25/26/32/36), 26 Caesar shifts, pairs→bytes
+  (×16/24/26/32), reversed, base-26 mod curve-order N → privkey. No address match.
+- half/better as AES passwords (sha/direct/md5/sha256) on all 3 blobs. No.
+- half/better as Vigenère keys over the yin-yang wide channel. No.
+- part1/part2 bit-packed to 256 bits (wide=5b square-pos / alpha; narrow=2b; both
+  orders; 4 bcde orderings; narrow-only channel ±reversed) → privkey. No.
+- Recipe concat with primes∈{8686159, 2518101088543, 86861592518101088543, 2357}
+  and yinyang∈{ISBN 9780705406963, yinyang, cosmicduality} → all 3 blobs. No.
+- Wide-channel Bifid with long keys (incase, speech, lastwords, salvationofzion,
+  the half/better strings themselves) and a 4-letter crib search for
+  salvation/yinyang/youwon — no clean decode.
+
+**Next-iteration ideas:** (a) the recipe may be 4 *sequential stages*, not a
+concatenated password (X: "4 stages"); (b) "reinserting the prime basics" may mean
+inserting 2,3,5,7 into a string at prime positions before hashing; (c) the
+half/better and part1/part2 may pair up (two "halves" each).
