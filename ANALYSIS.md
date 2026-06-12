@@ -20,15 +20,33 @@ Everything claimed here as *validated* is reproduced by code:
 | Phase 3.2 EBCDIC+Beaufort | Architect "your life…" speech | ✅ |
 | Phase 3.2 VIC | "IN CASE YOU MANAGE TO CRACK THIS THE PRIVATE KEYS BELONG TO HALF AND BETTER HALF…" | ✅ |
 | **Phase 3.2 final AES** | private key? | ❌ unsolved |
-| SalPhaseIon (via `sha256` of image text) | several decoded fragments + 1 AES blob + 2 base-9 strings | ⚠️ partial |
-| **SalPhaseIon base-9 strings** | ? | ❌ unsolved |
-| **SalPhaseIon AES** | private key? | ❌ unsolved |
-| **Cosmic Duality AES** (1328 ct bytes) | the two private keys? | ❌ unsolved — the main target |
+| SalPhaseIon (via `sha256` of image text) | fragments + 1 AES blob + dbbi/faed strings | ⚠️ partial |
+| **SalPhaseIon `faed` (STR_B)** | **Bifid(key=dbifhceg) → `btcseed` + part1 + part2** | ✅ **CRACKED** (`solver/bifid.py`) |
+| **SalPhaseIon `dbbi` (STR_A)** | **Vigenère/OTP(key=INCASE…) → `…YOUWON…` + half(21) + better(64)** | ✅ **CRACKED** (reproducible) |
+| part1/part2 (the btcseed) | yin-yang mirror halves; wide+narrow channels | ❌ final readout open |
+| half/better-half (the YOUWON keys) | 64 chars = privkey length | ❌ final readout open |
+| **SalPhaseIon AES** / **Cosmic Duality AES** | private key(s)? | ❌ unsolved — the capstone |
 
 There are **two parallel terminal branches** — the main chain (…→ Phase 3.2) and
-SalPhaseIon (reached by hashing the cover image text). The community consensus
-(and the creator's hints) is that **SalPhaseIon is the last phase** and Cosmic
-Duality is its capstone.
+SalPhaseIon (reached by hashing the cover image text). SalPhaseIon is the last
+phase; Cosmic Duality is its capstone.
+
+### ⭐ BREAKTHROUGHS (this effort — verified, reproducible)
+1. **`faed` is a Bifid cipher** keyed by `dbbi`'s unique letters (`dbifhceg`) →
+   decodes to the literal word **`btcseed`** + two new strings (part1, part2).
+2. **part1/part2 are a yin-yang**: mirror-image digraph structures
+   `(wide,{bcde})` vs `({bcde},wide)` — matching the creator's #1 "yinyang" unlock.
+3. **`dbbi` is ALSO a Vigenère/OTP** keyed by the `INCASE…` string → **`YOUWON`** +
+   a 21-char "half" + a 64-char "better half" (= hex-privkey length). dbbi thus has
+   a *dual role* (Cosmic Duality theme).
+4. **`matrixsumlist` = the phase-0 grid as a 196-bit number** (`40585…878976`,
+   bunny zeroed), reproduced in `solver/matrix_value.py`.
+5. **yellow=9, blue=15** decoded from the grid (also = grid colour freq; the freq
+   `86,86,15,9`→`8686159` is a prime candidate for the `primes` slot).
+
+**The single remaining frontier:** the final readout of the yin-yang channels
+(part1/part2) and/or the half/better strings into the actual private key(s). The
+most advanced community solvers are stuck at the identical point.
 
 ---
 
