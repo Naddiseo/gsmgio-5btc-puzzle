@@ -89,6 +89,41 @@ the single strongest legible result anyone has pulled from `dbbi`.
 So the 64-char tail is **not** a private key under any direct/obvious encoding;
 it almost certainly needs the puzzle's next intended step.
 
+## Finding 3 — the SalPhaseIon page is a self-describing ROADMAP  ✓ NEW, VERIFIED
+
+The full SalPhaseIon character stream (from `salphaseion.ipynb`) is not just the
+two a–i ciphertexts. Decoding its other embedded segments (all reproduced in
+`roadmap.py`) yields the puzzle's own instruction labels:
+
+| segment | encoding | decodes to |
+|---|---|---|
+| binary1 (a/b) | a=0,b=1, 8-bit ASCII | **`matrixsumlist`** |
+| binary2 (a/b) | a=0,b=1, 8-bit ASCII | **`enter`** |
+| base-10 s1 | `abcdefghio`→`1234567890`, hex→ascii | **`lastwordsbeforearchichoice`** |
+| base-10 s2 | same | **`thispassword`** |
+| `shabef` | `sha`+letter-index(b,e,f)=`sha`+2,5,6 | **`sha256`** |
+
+So the page literally lays out the procedure:
+`STR_A` → (matrix-sum-list) … `STR_B`=btcseed … **last words before the
+architect's choice** … **this password** … **sha256** of *"our first hint is
+your last command"* … **[AES blob]** … **enter** … **[AES blob]** … sha256
+*"ans too"*.
+
+Per `phase0.ipynb`, **"our first hint" = "follow the white rabbit"** (Matrix).
+
+## Finding 4 — the AES blob is real and correctly assembled  ✓ NEW
+
+The two base64 chunks join (with the literal `z`) into one OpenSSL blob:
+
+    base64( "Salted__" + salt(3ab585348552415d) + 80-byte ciphertext )
+
+96 bytes total, ciphertext = 5 AES-CBC blocks — a well-formed `openssl enc`
+output (my decryptor is round-trip-verified against the `openssl` CLI). The
+password is one of the architect's "seven intertwined passwords"; tried so far
+(via EVP_BytesToKey md5/sha256, AES-128/256, raw + sha256-hex + sha256-raw
+forms): the roadmap labels, Matrix quotes, "follow the white rabbit" variants,
+btcseed/youwon — **no valid-padding decryption yet**. `aes_attack.py` extends.
+
 ## Open leads (from the transcript — the next intended step)
 
 - "**yellow blue primes**" — an unsolved sub-clue gating progress.
