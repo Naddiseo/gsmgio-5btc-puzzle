@@ -10,3 +10,4 @@ This folder contains a list of currently unverified, or unverifiable, solutions 
 | Final AES blobs | Phase 3.2 / SalPhaseIon / Cosmic Duality | [final-aes-blobs.md](./final-aes-blobs.md) | Structure of the three terminal AES blobs, the address oracle, and documented negative password attempts |
 | SalPhaseIon strings + primes | SalPhaseIon | [salphaseion-strings-and-primes.md](./salphaseion-strings-and-primes.md) | The two unsolved base-9 strings; primes confirmed = {2,3,5,7}; transforms & sweeps ruled out |
 | btcseed string | SalPhaseIon? | [btcseed-string.md](./btcseed-string.md) | Community-sourced unverified string in SalPhaseIon format; IC=0.10 (structured); + Denis's prime-index method |
+| **Bifid breakthrough** | SalPhaseIon | [bifid-breakthrough.md](./bifid-breakthrough.md) | **VERIFIED: dbbi=key, faed=Bifid ciphertext -> decodes to 'btcseed'+part1+part2. The 7-year dbbi/faed wall, cracked. part1/part2 now the frontier** |
