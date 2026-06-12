@@ -124,6 +124,43 @@ password is one of the architect's "seven intertwined passwords"; tried so far
 forms): the roadmap labels, Matrix quotes, "follow the white rabbit" variants,
 btcseed/youwon — **no valid-padding decryption yet**. `aes_attack.py` extends.
 
+## AES password search — exhaustive negatives (this session)
+
+The combined blob (80-byte ct) is consistent with a **64-hex-char private key +
+16-byte PKCS#7 pad**. Attacked with strict-ASCII / valid-padding filtering:
+- ~38,700 contiguous word n-grams (len 1–13) of the architect speech + the
+  canonical Matrix two-doors monologue, each raw / no-space / sha256(hex,raw).
+- All decoded puzzle strings (btcseed payload, bifid tail, OTP/YOUWON segments,
+  STR_A, STR_B, INCASE, roadmap labels) × KDFs {EVP_BytesToKey-md5,
+  -sha256, PBKDF2-sha256/sha512 @ 1/1000/10000} × AES-128/256.
+- Both blob assemblies (combined 80-byte ct, and AES1-alone 32-byte ct).
+
+**No valid decryption.** (Decryptor round-trip-verified vs the `openssl` CLI, so
+negatives are real.) The password is one of the architect's "seven intertwined
+passwords"; the community has not cracked it either.
+
+## The connected lead (strongest direction)
+
+Three roadmap/transcript threads point at one mechanism:
+- roadmap label **`lastwordsbeforearchichoice`**,
+- the architect's instruction **"reinserting the prime basics"**, and
+- the transcript claim that **prime indexes over "last words" extract ~30–31
+  bytes containing "ying yang" and "salvation."**
+
+The architect's literal *last words before the choice* are the Matrix Reloaded
+**two-doors speech**: *"…leads to the source and the **salvation** of Zion … the
+door to your left … the Matrix…"* — and the two doors ARE the **yin-yang /
+cosmic duality** (the next phase). So the intended step is almost certainly a
+*specific* prime-indexed selection over that speech, yielding the cosmic-duality
+key material. Plain prime-indexing (all primes, 0/1-based, with/without spaces)
+does NOT cleanly surface salvation/yingyang — the exact word-set + prime scheme
+is still unknown (this is the live frontier).
+
+## Tooling added
+- `roadmap.py` — verified decode of all embedded instruction labels.
+- `aes_attack.py`, `aes_ngram.py` — OpenSSL-blob decryptors + n-gram password
+  search (round-trip-checked vs `openssl`).
+
 ## Open leads (from the transcript — the next intended step)
 
 - "**yellow blue primes**" — an unsolved sub-clue gating progress.
