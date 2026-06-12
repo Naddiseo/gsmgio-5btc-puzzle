@@ -85,6 +85,21 @@ duality; letters→nth-prime; zeroing prime positions/values; inserting zeros at
 prime positions; Bellaso-style and 8-symbol reductions of STR_A/STR_B. The
 `dbbi`/`faed` decode and the `yinyang` value remain the universal wall.
 
+## Creator's hard constraints (narrow the search a lot)
+
+- **"You have all the info."** / **"No other URL to find."** Nothing external is
+  missing — the key/method for `dbbi`/`faed` is *already in the decoded materials*.
+- **"The puzzle no longer requires the internet"** (from SalPhaseIon onward; you
+  only need the net to *claim* the prize). ⇒ the decode key is **self-contained**:
+  a string we already have (the speech, a decoded fragment, the grid, a phase
+  password), not a lookup. Tested as running keys over STR_A/B (the speech, the
+  grid, follow-the-white-rabbit, theseedisplanted, the roses poem, matrixsumlist,
+  thematrixhasyou, salvation, …) — all negative so far.
+- **"Has anyone passed the salvation part?" → "Partly."** SalPhaseIon = salvation;
+  someone is partway through it.
+- **"Something was solved rather… remarkable."** An unspecified recent partial.
+- Likely **no more hints** unless it stays unsolved "for years."
+
 ## Open, highest-value question
 
 **What is `yinyang` as a concrete value/operation?** The creator calls it "a very
