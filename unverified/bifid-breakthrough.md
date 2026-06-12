@@ -98,3 +98,27 @@ structure). Separating the channels:
 The wide channel does not yield to straight Vigenère (flat IC across all periods)
 — next: hill-climb substitution, or use the narrow 2-bit channel as a 4-alphabet
 polyalphabetic selector. **This is the unlock everyone's been chasing.**
+
+## Yin-yang channel decode attempts (this session — exhaustive, none cracked)
+
+Wide channel (281 chars, IC 0.051) attacked as:
+- Vigenère (no key period detectable; ~40 meaningful keys; Fresco "Looking
+  Forward"/jacquefresco; Architect-speech running key) — no English.
+- Monoalphabetic substitution (hill-climb, 40 restarts, bigram fitness) — no.
+- **Bifid 2nd-layer** (IC 0.051 = bifid-of-English signature!) — 18k keys
+  brute-forced + meaningful keys — no English. (Strongly expected to work; didn't.)
+- 4-alphabet polyalphabetic via the narrow channel (26⁴ shift combos) — no.
+- Narrow channel as prime shifts {b,c,d,e}→{2,3,5,7} over wide — no.
+- Prime-indexing the wide channel (Denis's "last words" method) — no yinyang/salv.
+- Selecting wide chars by narrow value — no target words.
+
+Narrow channel (281×2 bits) attacked as the raw key: all 24 bcde→2-bit orderings
+× all 32-byte windows × part orderings → oracle. No address match.
+
+Also tried: decoding dbbi (STR_A) itself with incase/faed/btcseed keys (no English),
+and dozens of AES-password constructions from btcseed/part1/part2/sha-chains.
+
+**Conclusion:** the Bifid crack and the yin-yang mirror structure are solid and
+verified; the *final* readout of the two channels still needs a missing key or
+combination rule. The most advanced community solvers (X, Denis) are stuck at the
+identical point ("we can't proceed further"). This is the true, current frontier.
