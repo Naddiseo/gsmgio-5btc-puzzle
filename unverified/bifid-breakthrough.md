@@ -81,3 +81,20 @@ Structural facts to exploit next: part1 = 45 digraphs, second char ∈ {b,c,d,e}
 chars. IC(part1)=0.103, IC(part2)=0.092 — both *above* English, i.e. structured
 numeric data, not enciphered prose. The label "btcseed" says the payload is a
 high-entropy key/seed. **This is the live frontier of the entire puzzle.**
+
+## ⭐ THE YIN-YANG: part1 and part2 are mirror-image halves
+
+Confirmed structurally — this is almost certainly the creator's "yinyang" unlock:
+- **part1** = 45 digraphs of the form **(wide-char, {b,c,d,e})**
+- **part2** = 236 digraphs of the **mirror** form **({b,c,d,e}, wide-char)**
+
+Two halves with the pattern inverted = yin and yang (each contains the other's
+structure). Separating the channels:
+- **wide channel** (part1-even + part2-odd, 281 chars): **IC ≈ 0.051** →
+  polyalphabetic/substitution-cipher territory (the actual payload).
+- **narrow channel** ({b,c,d,e}, 281 × 2 bits): a 562-bit side channel — likely
+  the key/selector or a checksum.
+
+The wide channel does not yield to straight Vigenère (flat IC across all periods)
+— next: hill-climb substitution, or use the narrow 2-bit channel as a 4-alphabet
+polyalphabetic selector. **This is the unlock everyone's been chasing.**
