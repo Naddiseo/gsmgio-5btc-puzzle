@@ -59,3 +59,25 @@ surfaced), base-26/decimal/base-4 → bytes, digraph→byte maps. **Open.**
 
 This matches exactly where the most advanced community solver is stuck — so
 cracking part1/part2 is now the literal frontier of the whole puzzle.
+
+## part1/part2 — full attempt log (this session)
+
+All oracle-checked against `1GSMG…`/`17ucy…`; none cracked:
+- **Second Bifid layer** (5×5 and 6×6 squares; keys: dbifhceg, btcseed, incaseyo,
+  part1/part2 unique-letters at every prefix length, both directions).
+- **Other digraph ciphers**: Playfair, four-square, two-square, square-coordinate
+  lookups (each pair→one letter, 4 variants).
+- **Trifid** (periods 3/5/7/full).
+- **Vigenère/Beaufort** with ~30 keys (all phase passwords, decoded fragments,
+  Matrix vocabulary, salvation/yinyang/source/zion/architect/oracle…).
+- **Running keys** (mod 26): the Architect speech, the matrix number (Gromark),
+  and part1↔part2 against each other.
+- **Prime-indexing** (Denis's method) — no yinyang/salvation surfaced.
+- **Numeric → key**: base-26/decimal/base-4/mixed-radix(19×4) → bytes; sha256 of
+  every variant → privkey; all checked vs the oracle.
+
+Structural facts to exploit next: part1 = 45 digraphs, second char ∈ {b,c,d,e}
+(= the top-left 2×2 of the dbifhceg square → 2 bits each); 19 distinct first
+chars. IC(part1)=0.103, IC(part2)=0.092 — both *above* English, i.e. structured
+numeric data, not enciphered prose. The label "btcseed" says the payload is a
+high-entropy key/seed. **This is the live frontier of the entire puzzle.**
