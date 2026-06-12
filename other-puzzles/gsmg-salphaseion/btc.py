@@ -4,10 +4,10 @@ checks against the known GSMG puzzle addresses. Uses coincurve."""
 import hashlib
 import coincurve, base58
 
+# The only two OFFICIAL known puzzle addresses (per puzzle owner / community).
 GSMG_ADDRS = {
-    "1GSMG1JC9wtdSwfwApgj2xcmJPAwx7prBe": "final 5 BTC prize",
-    "1cryptoGeCRiTzVgxBQcKFFjSVydN1GW7": "seen in repo",
-    "17ucy1K9ZUAaoY6JVtM932W9jUp5LXfyHa": "seen in repo",
+    "1GSMG1JC9wtdSwfwApgj2xcmJPAwx7prBe": "main puzzle / final prize address",
+    "17ucy1K9ZUAaoY6JVtM932W9jUp5LXfyHa": "where half the funds moved during the halving",
 }
 
 def _h160(b): return hashlib.new("ripemd160", hashlib.sha256(b).digest()).digest()

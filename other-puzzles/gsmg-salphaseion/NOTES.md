@@ -5,6 +5,41 @@ The main `Bahs` repo documents the GSMG.IO puzzle solved through **Phase 3.2**
 the **next open frontier**: the two SalPhaseIon ciphertext strings, reproduced
 and verified against the community Telegram transcript.
 
+**Official addresses (only two known):**
+- `1GSMG1JC9wtdSwfwApgj2xcmJPAwx7prBe` — main puzzle / final prize.
+- `17ucy1K9ZUAaoY6JVtM932W9jUp5LXfyHa` — where **half the funds moved during the
+  halving**.
+
+## Are "btcseed" / "YOUWON" real signal, or paranoia?  (honest take)
+
+Under a random-output null model:
+- **btcseed** at the exact start of the bifid output (7 letters, 25-letter
+  alphabet) ≈ **1 in 6.1 billion**.
+- **YOUWON** appearing anywhere in the 91-char OTP output (6 letters) ≈
+  **1 in 3.6 million**.
+
+Why this is more than cherry-picking: **neither key was brute-forced.** The
+bifid keyword `dbifhceg` is the *dedup-first-appearance rule applied to `dbbi`
+itself* (d,b,b,i,b,f,b,h,c,c,b,e,g → dbifhceg) — derived from the string's own
+structure, not chosen to spell "btcseed". The OTP key `INCASE…` is the
+independently-verified Phase-3.2 output. So both tokens come from *forced*,
+single applications, which is what makes them hard to dismiss.
+
+The steelman **for** skepticism (valid): if the community collectively tried
+many (cipher, key, operation, alphabet) combinations and kept the one run that
+happened to spell a word, the effective trial count inflates and the "surprise"
+shrinks — the garden-of-forking-paths problem. btcseed survives this far better
+(rule-derived key, astronomically rare); YOUWON is weaker (a Vigenère/OTP `c−k`
+was one of a few natural operations to try).
+
+**Bottom line:** they are most likely intentional *markers/labels* confirming
+direction — but they are NOT payload. We have decoded **two signposts and zero
+treasure**: the 90-char block, the 472-char tail, and especially the 21- and
+64-char OTP segments remain fully opaque, and **no key or seed has been
+recovered**. So "are we just chasing btcseed?" is a fair worry: the markers tell
+us *where*, not *what*.
+
+---
 Prize address (final): `1GSMG1JC9wtdSwfwApgj2xcmJPAwx7prBe`.
 
 ## Canonical inputs
