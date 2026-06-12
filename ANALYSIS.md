@@ -84,17 +84,29 @@ Read as an ordered ingredient list for the final password:
 
 | Slot | Resolves to | Confidence |
 |------|-------------|-----------|
-| `yellow` | **9** (or its spelled/letter forms) | decoded — see §4 |
-| `blue` | **15** (or its spelled/letter forms) | decoded — see §4 |
+| `yellow` | **9** (grid colour count) | decoded — see §4 |
+| `blue` | **15** (grid colour count) | decoded — see §4 |
 | `primes` | an arrangement of **{2, 3, 5, 7}** | set confirmed by hint; arrangement unknown |
-| `matrixsumlist` | result of operating on STR_A/STR_B | unknown |
-| `lastwordsbeforearchichoice` | literal string, or the actual last words before Neo's choice | ambiguous |
-| `yinyang` | Cosmic Duality — the two halves (STR_A/STR_B?) | unknown |
-| `thepassword` | "in front of your eyes" — possibly `thispassword` | unknown |
+| `matrixsumlist` | **40585734329412479690520338541901772425587069158131163878976** — the phase-0 grid as a 196-bit number with the 4 bunny squares zeroed ("four zeros omitted") | **value confirmed** (`solver/matrix_value.py`); how it enters the password is unknown |
+| `lastwordsbeforearchichoice` | literal string, or the Architect's two-door / "salvation of Zion" speech | ambiguous |
+| `yinyang` | Cosmic Duality (yin-yang of two galaxies = light/dark = yellow/blue). **The creator's single confirmed unlock** ("once you hit a yin-yang, solved in 2 h") — unreached by anyone | unknown |
+| `thepassword` | "in front of your eyes" — the assembled result | unknown |
 
 The Phase 3.2 speech names the structure: *"reinserting the prime basics … seven
-intertwined passwords"* — and the recipe has exactly **7** slots. Details on the
-prime slot and the two strings: `unverified/salphaseion-strings-and-primes.md`.
+intertwined passwords"* — and the recipe has exactly **7** slots.
+
+**Anchor (Jrk confirmed): the prize is a *regular Bitcoin private key*** — a random
+256-bit value, so it is *stored encrypted* in a blob, not derived from a
+passphrase. The recipe password decrypts that blob → the 64-hex key, verifiable
+against the two vanity addresses via `solver/btc.py`.
+
+**Status of the assembly:** every concatenation of the known/candidate values
+(literal names, the matrix number, all primes arrangements, every yinyang
+spelling) has been tested against all three blobs, both KDFs, both passphrase
+modes, and oracle-checked — **all negative**. So either `yinyang` ≠ a literal
+word, or the assembly is non-trivial. `yinyang` is the one missing lever.
+
+Details: `unverified/salphaseion-strings-and-primes.md`, `telegram-intel.md`.
 
 ---
 
