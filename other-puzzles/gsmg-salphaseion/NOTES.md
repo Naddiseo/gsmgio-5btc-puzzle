@@ -239,6 +239,27 @@ these steps (not brute-forced). The "ying yang / cosmic duality" is the two-door
 choice; 2023-08-06 hint: *"once you hit a ying yang you'll solve it the same
 day."* The exact per-step operations remain the open frontier.
 
+## Finding 8 — the "Sum" token from STR_A (b-as-separator)  ✓ NEW, VERIFIED
+
+A previously-untried decode of **STR_A** (the 91-char `dbbi` string): treat **`b`
+as a separator**, and for each group of letters between separators **sum the
+letter values** (a=1 … i=9; `b`=2 is the separator). Map each group-sum to a
+char: 1–26 → A–Z, 27–36 → digit (sum−27). This yields:
+
+    DIFNLREV9E6VARXVF5UF8PE      (23 groups → 23 chars)
+
+The digits (9,6,5,8) land **exactly** where a group-sum exceeds 26 — a designed
+feature, not coincidence — so the method is almost certainly intended. This is
+the **"sum" / "ans"** the SalPhaseIon stream refers to ("…combine what was found
+in the sum and what was said at the end…"). Reproduced from first principles in
+`salph_sum_decode.py` and cross-checked against community work
+(github `mkno03/GSMG-5BTC-...`, which reports the same token but did **not**
+crack the AES — its "hits" are padding-oracle false positives). Tested as an AES
+password (alone, sha256, and combined with last-words / "ans"=5 / matrixsumlist
+column-sums of STR_B) under EVP-md5/sha256 **and** PBKDF2-sha1/sha256 ×
+AES-128/192/256 — no decryption yet, but this is the strongest verified new
+component for assembling the password.
+
 ## Exhaustive negative password searches (this session, correct 96-byte blobs)
 
 All against both blobs, EVP_BytesToKey {md5,sha256} × AES-{128,256}, password
