@@ -393,6 +393,23 @@ is lossy (ct%16=12, invalid); our `salphaseion.ipynb` transcription assembles to
 a clean 96-byte `Salted__` blob (salt `3ab585348552415d`, 80-byte ct), so our
 ciphertext is the structurally sound one.
 
+## Finding 14 — the Cosmic Duality plaintext is (reportedly) a PGP message  ✓ NEW LEAD
+
+Issue #51 ("Progress on Salphaseion and Cosmic Duality") reports the cosmic
+plaintext is a **~1327-byte PGP/OpenPGP message** (PKESK = Public-Key Encrypted
+Session Key packets) — and our cosmic ciphertext is exactly **1328 bytes**, so a
+correct AES decrypt would yield ~1327 plaintext bytes. **Important consequence:**
+all our prior attacks required printable-ASCII ≥ 0.95 and would have *rejected a
+binary PGP blob*. `attack.py`'s acceptance is now PGP-aware (valid PKCS#7 + PGP
+packet-tag first byte / `-----BEGIN PGP` armor / nested `Salted__`).
+
+Re-ran every verified candidate + roadmap concatenations + direct-XOR-key
+(issue-#69 style) over all 3 blobs with the PGP filter (6840 decryptions). The
+only "hits" were two single-byte tag coincidences on the small p32 blob with
+random tails — statistical noise (expected at this trial count), not real PGP
+structure. **No genuine PGP message recovered**; issue #51's author was likewise
+stuck (the layer implies a further PGP private key is needed even after AES).
+
 ## Honest status
 
 This is the SalPhaseIon/Cosmic-Duality wall — the GSMG puzzle has been stuck

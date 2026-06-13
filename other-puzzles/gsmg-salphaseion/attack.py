@@ -36,14 +36,21 @@ def evp(pw, salt, kl, il, md):
         p = md(p + pw + salt).digest(); d += p
     return d[:kl], d[kl:kl + il]
 
+# PGP/OpenPGP first-byte packet tags (issue #51 reports the cosmic plaintext is a
+# ~1327-byte PGP/PKESK message — a binary blob our ASCII filter would have rejected).
+_PGP_TAGS = {0x85, 0x84, 0x8c, 0xc1, 0x99, 0x98, 0xa3, 0x95, 0xa6, 0xc3}
+
 def ok(pt):
     pad = pt[-1]
     if not (1 <= pad <= 16 and pt[-pad:] == bytes([pad]) * pad): return None
     b = pt[:-pad]
     if not b: return None
     if b[:8] == b"Salted__": return ("NESTED", b)
+    if b[:14] == b"-----BEGIN PGP": return ("PGP-ARMOR", b)
     pr = sum(1 for x in b if 32 <= x < 127 or x in (9, 10, 13)) / len(b)
     if pr >= 0.95: return ("ASCII", b)
+    # weak PGP signal: packet-tag first byte (report but flag low-confidence)
+    if len(b) >= 32 and b[0] in _PGP_TAGS: return ("PGP?-weak", b)
     return None
 
 def test(s, label):
