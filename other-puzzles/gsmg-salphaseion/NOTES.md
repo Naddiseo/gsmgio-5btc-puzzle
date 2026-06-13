@@ -366,6 +366,33 @@ verified artifacts + the three real ciphertexts). Removed: aes_attack, aes_ngram
 analyze, cosmic_attack, full_attack, full_ngram_attack, ngram_correct,
 prime_attack, roadmap_attack, sum_combo_attack, salph_dict_brute (all exhausted).
 
+## Finding 13 — community "SOLVED" issue #69 is FABRICATED  ✓ NEW, VERIFIED
+
+`puzzlehunt/gsmgio-5btc-puzzle` issue #69 ("SOLVED: Comprehensive Solution")
+claims a master AES key `818af53daa3028449f125a2e4f47259ddf9b9d86e59ce6c4993a67ffd76bb402`
+built by XOR-ing the SHA-256 hashes of 7 tokens (matrixsumlist, enter,
+lastwordsbeforearchichoice, thispassword, matrixsumlist, sha256, theone) and
+"direct -K hex injection" into AES-256-CBC.
+
+- The master key **does** reproduce from that XOR — but this is **circular**:
+  the key is *defined* as the XOR, so reproduction proves nothing. Only actual
+  decryption validates a key.
+- Decrypting our (structurally valid, ct%16=0) cosmic and salph blobs with that
+  key under every natural IV (zeros, salt‖salt, key[:16], CryptoJS first-16) and
+  ciphertext slicing yields **garbage** (printable ≈ 0.39; only CBC block 0 even
+  varies with IV — proof the key is wrong for this ciphertext).
+- I generalised the method (novel for our tooling: *direct* AES-256 key = XOR of
+  sha256(token) over the real roadmap tokens, all subsets size 1–5, 3 blobs,
+  5 IV schemes = 638 token-sets) → **zero valid-padding ASCII decryptions**.
+- The issue's "plaintext" is just the already-public INCASE sentence, it provides
+  **no private key**, and it asks for a reward / permission to "dust" the address
+  — the standard fabricated-submission pattern. **Disregard issue #69.**
+
+Side note: the README's base64 transcription of AES1/AES2 (as machine-fetched)
+is lossy (ct%16=12, invalid); our `salphaseion.ipynb` transcription assembles to
+a clean 96-byte `Salted__` blob (salt `3ab585348552415d`, 80-byte ct), so our
+ciphertext is the structurally sound one.
+
 ## Honest status
 
 This is the SalPhaseIon/Cosmic-Duality wall — the GSMG puzzle has been stuck
