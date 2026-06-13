@@ -410,6 +410,31 @@ random tails — statistical noise (expected at this trial count), not real PGP
 structure. **No genuine PGP message recovered**; issue #51's author was likewise
 stuck (the layer implies a further PGP private key is needed even after AES).
 
+## Finding 15 — full structure of the bifid "btcseed" output  ✓ NEW, VERIFIED
+
+Analysing the entire 570-char bifid decode (not just the 90-char block):
+
+    btcseed | payload(90) | z@97 | tail(472)
+
+- **Every** data pair is `(WIDE, NARROW)` with **NARROW ∈ {b,c,d,e}** (exactly
+  2 bits). The `payload` is paired at offset 0 `(wide,narrow)`; the `tail` is the
+  *same* pairing but **order-flipped** — its pairs read `(narrow,wide)` at offset
+  0, i.e. clean `(wide,narrow)` again only at offset 1 (tail[0]=`e` is a leftover
+  marker). So the single `z` is a **parity-flip / mirror point**, not just a
+  separator: the second half is the first half's pairing reflected.
+- Combined there are **280 `(wide,narrow)` pairs** (45 + 235). WIDE uses 24
+  distinct letters; the alphabets are `a–y` minus `j` (bifid 5×5, I/J merged).
+- Decoding attempts that FAIL (so future work can skip them): pair→ASCII via
+  `wide*4+narrow` under compact- and a–z indexing × offsets {0,29,31,32,48,64};
+  narrow-stream (2-bit) → bytes; first-letter Vigenère shifted by narrow
+  (b/c/d/e = 0–3 or 1–4, add/sub/sub-rev). None yield readable text, a valid
+  BIP39 checksum (16/24-word), or a private key matching either GSMG address.
+
+The `(wide, narrow∈{b,c,d,e})` shape (4-valued second coordinate) strongly
+implies a **keyed Polybius/grid read** (4 columns) whose square is one of the
+roadmap passwords (`thispassword`, `lastwordsbeforearchichoice`) — that keyed
+re-read is the concrete open sub-problem here.
+
 ## Honest status
 
 This is the SalPhaseIon/Cosmic-Duality wall — the GSMG puzzle has been stuck
