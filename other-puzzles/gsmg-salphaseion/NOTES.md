@@ -283,6 +283,24 @@ blobs are the same scheme; the only unknown is the *answer string* assembled fro
 the SalPhaseIon roadmap. Every candidate answer can now be tested deterministically
 and correctly via `phase_decryptor.decrypt(blob, answer)`.
 
+## Finding 10 — the FEFEFE image marker + Bacon cipher  ✓ NEW, VERIFIED
+
+From a 2026-06 community-log review (`community_findings.py`):
+- **FEFEFE marker**: `puzzle.png` has exactly ONE 25×25 grid cell colored
+  **(254,254,254)** instead of pure white — a deliberate "glitch in the matrix"
+  marker just left of the rabbit. Verified at grid **(row 7, col 4)**, 0-indexed
+  = spiral index 163 = byte 21, bit 3 of the phase-0 URL decode. Intentional but
+  its use in the answer is not yet determined.
+- **Bacon (rot-1) cipher**: an inverted-alphabet Baconian on a/b; decodes chat
+  members' a/b strings to Matrix quotes ("everythingthathasabeginninghasanend",
+  "beingtheoneislikebeinginlove", "choicestakingintotheabyss"). The puzzle's own
+  a/b strings are plain 8-bit ASCII, so this is a community tool, not a step.
+- Two long base58 strings claimed to "hide a private key" decode (base58→base64→
+  Bacon) to chat banter ("we need to focus into whats left…") — not puzzle data.
+
+Tested all decoded Matrix quotes + Bacon phrases as the Cosmic/salph answer under
+the confirmed scheme (Finding 9): no decryption.
+
 ## Exhaustive negative password searches (this session, correct 96-byte blobs)
 
 All against both blobs, EVP_BytesToKey {md5,sha256} × AES-{128,256}, password
