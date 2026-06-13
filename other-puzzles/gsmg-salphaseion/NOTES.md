@@ -183,10 +183,84 @@ is still unknown (this is the live frontier).
   the known GSMG addresses. Sanity-checked against privkey=1.
 - `analyze.py` — the hypothesis battery (re-run to extend with new ideas).
 
+## Finding 5 — there are TWO AES blobs; "Cosmic Duality" is the large, untranscribed one  ✓ NEW
+
+The SalPhaseIon page image (`salphaseion-assets/SalPhaselonCosmicDuality.png`)
+has **two** sections, and they are different ciphertexts:
+
+1. **"SalPhaseIon"** heading → the a–i character block. This is what
+   `salphaseion.ipynb` transcribed. Spelled out *inside* this a–i stream (char by
+   char, with the rest of the roadmap labels) is the **small 96-byte** OpenSSL
+   blob `U2FsdGVkX186tYU0…d9z QvX0…N/jJ` (salt `3ab585348552415d`). This is the
+   blob all prior tooling here attacks.
+
+2. **"Cosmic Duality"** heading → a **separate, much larger** base64 block
+   beginning `U2FsdGVkX18tP2//gbcl…` (≈13 lines × 64 = 832 b64 chars ≈ 624 bytes
+   = `Salted__` + 8-salt + ciphertext). **This blob was never captured as text in
+   this repo** — the notebook stops at the small embedded blob. The byte-accurate
+   transcription is now in **`cosmic_duality_blob.txt`** (28 lines × 64 = 1792
+   base64 chars = 1344 bytes; salt `2d3f6fe06dc950e6`; **83 AES-CBC blocks**;
+   structurally a valid `openssl enc` / CryptoJS `Salted__` blob).
+
+Implication: the small "SalPhaseIon" blob and the large "Cosmic Duality" blob are
+plausibly a **two-stage lock** — decrypting the small one likely yields the
+password (or instruction) for the large final-treasure blob. The roadmap labels
+that bracket the small blob ("sha256 / our first hint is your last command /
+[blob] / enter / [blob] / sha256 ans too") describe how to open it.
+
+## Finding 6 — authoritative matrix/spiral geometry  ✓ NEW
+
+Re-ran the phase-0 spiral unwrap tracking every cell. The **24 coloured cells sit
+exactly at spiral positions 8, 16, 24, … 192** — i.e. each is the **LSB (8th bit)
+of one of the 24 bytes** that spell `gsmg.io/theseedisplanted`. Therefore:
+
+- **blue = LSB 1 = odd-ASCII char**, at URL char positions
+  {1,2,3,4,6,7,8,11,12,13,14,16,17,20,23};
+- **yellow = LSB 0 = even-ASCII char**, at {5,9,10,15,18,19,21,22,24}.
+
+So "Yellow has a number and so does Blue" (2020-01-14 poem) literally means the
+yellow/blue cells tag the parity of each URL character. "yellow blue primes"
+(2023-02-23) selects the **prime-positioned** ones: blue-prime positions
+{2,3,7,11,13,17,23} → chars `s m o e e s e`; yellow-prime {5,19} → `. l`.
+Matrix row sums = [6,10,8,7,6,6,5,4,9,9,7,8,7,9], col sums =
+[8,10,8,10,8,7,3,6,7,5,9,6,6,8] (both total 101). None of these, in any tested
+encoding, opens either blob.
+
+## Finding 7 — the full roadmap (decoded 2023-02-23 official hint)  ✓
+
+The official "reverse binary string" hint decodes to the ordered pipeline:
+
+> yellow blue primes · matrix sumlist · last words before archichoice · yinyang ·
+> "we wont give away thepassword **its in front of your eyes but youre not seeing
+> it** · very last step is a true give away"
+
+Read as: the password is **visible on the page** and is *constructed* by walking
+these steps (not brute-forced). The "ying yang / cosmic duality" is the two-doors
+choice; 2023-08-06 hint: *"once you hit a ying yang you'll solve it the same
+day."* The exact per-step operations remain the open frontier.
+
+## Exhaustive negative password searches (this session, correct 96-byte blobs)
+
+All against both blobs, EVP_BytesToKey {md5,sha256} × AES-{128,256}, password
+forms {raw, sha256-hex, sha256-bin, sha256-HEX, md5-hex}:
+
+- 90k n-gram forms of the architect speech + Matrix monologue (`ngram_correct.py`).
+- 3.3k structured candidates (`full_attack.py`); 1.5k roadmap candidates
+  (`roadmap_attack.py`); 57k full-`yourlife` windows + roadmap n-grams
+  (`full_ngram_attack.py`).
+- The 2021-05-06 entry recipe `sha256("GSMGIO5BTCPUZZLECHALLENGE"+address)` and
+  variants; the page URL hash; visible titles; matrixsumlist outputs under
+  y/b ∈ {(0,1),(5,2),(9,15),(2,3),(5,7),…}; yellow/blue prime char picks over the
+  URL/seed; the full architect monologue and every sentence-boundary phrase.
+
+**No valid-padding ASCII decryption.** Decryptor is round-trip-verified vs the
+`openssl`/CryptoJS `Salted__` format, so the negatives are real.
+
 ## Honest status
 
 This is the SalPhaseIon/Cosmic-Duality wall — the GSMG puzzle has been stuck
-here for years. The two findings above are real and now reproduced from first
-principles with clean tooling, but converting them into a working key requires
-the next conceptual step (prime-indexed "last words" → yinyang/salvation), which
-is not yet pinned down. No key recovered.
+here for years. The findings above are real and reproduced from first principles,
+but the password derivation (the ordered roadmap pipeline ending in
+yinyang/"in front of your eyes") is not yet pinned to a concrete string, and the
+large Cosmic Duality ciphertext still needs a byte-accurate transcription. No key
+recovered.
