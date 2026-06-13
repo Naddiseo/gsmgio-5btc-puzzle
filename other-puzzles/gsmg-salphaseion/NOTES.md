@@ -318,6 +318,54 @@ forms {raw, sha256-hex, sha256-bin, sha256-HEX, md5-hex}:
 **No valid-padding ASCII decryption.** Decryptor is round-trip-verified vs the
 `openssl`/CryptoJS `Salted__` format, so the negatives are real.
 
+## Finding 11 — Denis Golovkin's blue/yellow token structure, VERIFIED  ✓ NEW
+
+Reproduced from the transcript ("First 20 prime indexes of dbbi … 'b' for blue,
+'be' (25, y) for yellow … 16/7 blue/yellow [23/16/7]"). The verified structural
+facts in **STR_A** ("dbbi", 91 chars):
+
+- Replacing every `be` → `y` compresses STR_A (81 chars). Its **b/y subsequence
+  has exactly 25 tokens = 15 standalone `b` (blue) + 10 `be`→`y` (yellow)** —
+  matching Denis's literal "**(25, y)**" (and `y` = 25th letter; `be` = 2,5).
+- The split Denis quotes, **[23/16/7]**, equals the count of **primes ≤ 83 (=23)**
+  and is *the same triple* the Architect's Beaufort speech states verbatim:
+  "select from over **twenty-three ciphers, sixteen encryptions** and/or **seven**
+  intertwined passwords." So [23/16/7] is almost certainly a **description of the
+  solution-pipeline length, not a single password** — which is the structural
+  reason every single-password blob attack (ours and the community's) fails: the
+  blob key is the *output* of a 23/16/7 composition, not a guessable phrase.
+- Denis's exact prime→b/y mapping does **not** reproduce cleanly: 1-indexed
+  primes≤83 into raw STR_A land on non-b/y letters (g,a,e,h,f,c,i); into the
+  compressed string they give 8 b / 3 y / 11 other. His precise indexing
+  (likely a rabbit/spiral re-ordering he didn't spell out) is unrecovered. The
+  *token counts* (15/10) are solid; the *prime selection* is not.
+
+Denis's final "**I mean two**" — read as two passwords/answers (cf. the INCASE
+"half and better half" = two keys). Tested 100+ two-part concatenations of every
+verified artifact under the confirmed scheme — no decryption.
+
+## Finding 12 — the phase-3.2 cell-18 AES is captured as a third target  ✓ NEW
+
+The notebook's leftover, never-cracked AES (`phase3.2.ipynb` cell 18,
+salt **b45a5e3d827593ca**, 96 B = 80-byte ciphertext = 5 CBC blocks) is now a
+target in `attack.py`. Per the chain it is upstream of SalPhaseIon. Tested
+against every phase-3.2-internal answer (INCASE forms, the Beaufort/architect
+speech and its sentences, the VIC alphabet `fubcdora/lethingkymvpszjqwx.`,
+"ciaobellao", "returntothesourcecode", "reinsertingtheprimebasics") under the
+verified scheme — **no decryption**. The bifid 90-char "btcseed" payload was
+re-examined as a BIP39/seed encoding (45 pairs, 2nd letter ∈ {b,c,d,e}); no
+readable/checksum-valid decode under ASCII-offset, mod-26, or 2-bit schemes.
+The OTP 64-char tail was checked as a private key (sha256/dsha256/base26/hexmap
+forms) against both real GSMG addresses via `btc.py` — **no address match**.
+
+## Tooling note (this session)
+
+The dozen overlapping one-off brute scripts were consolidated into a single
+`attack.py` (verified `Salted__` decryptor + one candidate generator over all
+verified artifacts + the three real ciphertexts). Removed: aes_attack, aes_ngram,
+analyze, cosmic_attack, full_attack, full_ngram_attack, ngram_correct,
+prime_attack, roadmap_attack, sum_combo_attack, salph_dict_brute (all exhausted).
+
 ## Honest status
 
 This is the SalPhaseIon/Cosmic-Duality wall — the GSMG puzzle has been stuck
