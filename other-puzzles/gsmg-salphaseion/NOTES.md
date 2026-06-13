@@ -260,6 +260,29 @@ column-sums of STR_B) under EVP-md5/sha256 **and** PBKDF2-sha1/sha256 ×
 AES-128/192/256 — no decryption yet, but this is the strongest verified new
 component for assembling the password.
 
+## Finding 9 — the EXACT AES scheme, reverse-engineered from solved phases  ✓ NEW, VERIFIED
+
+Using the **solved** earlier phases (answers public) as known-plaintext, the
+encryption scheme is now pinned down exactly (`phase_decryptor.py`):
+
+    passphrase = sha256_HEX(answer)              # 64-char hex digest, as a string
+    key,iv     = EVP_BytesToKey(md=SHA-256, passphrase, salt)   # AES-256, 1 iter
+    plaintext  = AES-256-CBC(ciphertext); strip PKCS#7
+
+VERIFIED decryptions:
+- **Phase 2**, answer `causality` → `"The ironic 2name of the keymakers trying to
+  protect the current digital powers…"` (Mr-Robot/cipher riddles).
+- **Phase 3.2**, answer `jacquefrescogiveitjustonesecondheisenbergsuncertaintyprinciple`
+  → `"I've been waiting for you. You have many questions…"` + the EBCDIC blob.
+
+Key correction: the KDF digest is **SHA-256, not MD5** (newer `openssl enc`
+default), and the passphrase is the **hex** sha256 of the answer. Answers are
+**concatenations of the stage's sub-solutions** (e.g. Phase-2 parts 1–7). This is
+exactly what the SalPhaseIon `shabef` (=sha256) labels denote. The Cosmic/salph
+blobs are the same scheme; the only unknown is the *answer string* assembled from
+the SalPhaseIon roadmap. Every candidate answer can now be tested deterministically
+and correctly via `phase_decryptor.decrypt(blob, answer)`.
+
 ## Exhaustive negative password searches (this session, correct 96-byte blobs)
 
 All against both blobs, EVP_BytesToKey {md5,sha256} × AES-{128,256}, password
