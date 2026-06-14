@@ -505,11 +505,44 @@ None produced valid-padding readable plaintext. The 64-char post-`YOUWON` tail
 and the keyed-Polybius re-read of the bifid `(wide,narrow∈bcde)` pairs (Finding
 15) remain the two concrete open sub-problems.
 
+## Finding 18 — the phase-0 matrix is 15 blue + 9 yellow = 24 (creator-hint confirmed)  ✓ NEW
+
+The 24 colour-tagged bytes of `gsmg.io/theseedisplanted` split exactly:
+**15 blue (odd-ASCII LSB=1) + 9 yellow (even-ASCII LSB=0)**. Owner's own arithmetic
+hint frames this with the prime basics 2,3: `3÷2×2×3=9` (yellow), `3×(2+3)=15`
+(blue), `(2+3)×(2×3)−(2×3)=24` (both). Derived strings:
+  * blue (15) = `gsmgio/eseeisae`; yellow (9) = `.thdplntd`
+  * blue-prime positions {2,3,7,11,13,17,23} → `smoeese`; yellow-prime {5,19} → `.l`
+  * all-prime chars (2..23) → `sm.oeesle`
+The b/y appearance order is the template `BBBBYBBBYYBBBBYBBYYBYYBY` — but that just
+rebuilds the URL (self-consistent, no new data).
+
+## Session 2 (2026-06-14) — original-only search, no hit (negative log)
+
+Per owner directive (ignore public solutions, derive independently). Added a
+**privkey→address win-check** (decrypt → valid PKCS#7 → try plaintext as raw-32 /
+hex-64 / sha256(pt) → P2PKH compress+uncompress vs both GSMG addresses), so a
+correct key is caught even when the plaintext is **binary** (not ASCII). Tested
+under EVP-{md5,sha256} + PBKDF2, AES-{128,256}, passphrase = {raw, sha256hex,
+sha256HEX}, against salph + cosmic:
+  * all phase-0 blue/yellow/prime/yin-yang strings + combos with SUM/salvation;
+  * 370 casing/spacing/punctuation variants of "our first hint…", "follow the
+    white rabbit", "the matrix has you", "ans too", etc.;
+  * 91 single Matrix-concept words (love, trinity, choice, anomaly, salvation,
+    cosmicduality, …); title respellings incl. the notebook's `SalPhaselon`;
+  * matrix row/col sum-lists; the 9/15/24 values as letters/strings;
+  * all roadmap-label concatenations (yellowblueprimes·matrixsumlist·lastwords·
+    yinyang) + architect-phrase keys; prime-index over speeches (plain/rev/spiral).
+
+**No valid decryption and no address match.** The crypto mechanics are fully
+pinned and round-trip-verified; the sole remaining unknown is the *answer string*,
+which the yin-yang step is supposed to construct — that exact operation is still
+not recovered.
+
 ## Honest status
 
 This is the SalPhaseIon/Cosmic-Duality wall — the GSMG puzzle has been stuck
 here for years. The findings above are real and reproduced from first principles.
-The page is now fully reconstructed (Finding 16) and the creator's own recipe is
-decoded (Finding 17), but the final passphrase string is still not pinned, and
-the large Cosmic Duality ciphertext still needs a byte-accurate transcription.
-**No key recovered.**
+The page is fully reconstructed (Finding 16), the creator's recipe decoded
+(Finding 17), and the phase-0 matrix split confirmed against the owner's own
+hint (Finding 18). The final passphrase is still not pinned. **No key recovered.**
