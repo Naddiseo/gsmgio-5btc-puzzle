@@ -435,11 +435,81 @@ implies a **keyed Polybius/grid read** (4 columns) whose square is one of the
 roadmap passwords (`thispassword`, `lastwordsbeforearchichoice`) — that keyed
 re-read is the concrete open sub-problem here.
 
+## Finding 16 — the COMPLETE SalPhaseIon page token-stream, reconstructed  ✓ NEW, VERIFIED
+
+The whole `salphaseion.ipynb` page is one continuous single-char token stream.
+Reassembled verbatim from cell 0 (1075 tokens), it parses cleanly into:
+
+    STR_A(91, a-i)                      <- "dbbi…" ciphertext #1
+    binary1  -> "matrixsumlist"         (a/b, 8-bit ASCII)
+    STR_B(570, a-i)                     <- "faed…" ciphertext #2
+    z
+    s1       -> "lastwordsbeforearchichoice"   (a-i via abcdefghio->1234567890, int->hex->ascii)
+    z
+    s2       -> "thispassword"                 (same map)
+    z
+    shabef   -> "sha256"                (b=2,e=5,f=6 base-10 -> SHA-256)
+    "ourfirsthintisyourlastcommand"
+    AES1  = U2FsdGVkX186tYU0hVJBXXUnBUO7C0+X4KUWnWkCvoZSxbRD3wNsGWVHefvdrd9z
+    binary2  -> "enter"                 (a/b, 8-bit ASCII)
+    AES2  = QvX0t8v3jPB4okpspxebRi6sE1BMl5HI8Rku+KejUqTvdWOX6nQjSpepXwGuN/jJ
+    shabef   -> "sha256"
+    "anstoo"
+
+So the AES = base64(AES1‖AES2) = the single 96-byte `Salted__` blob (salt
+`3ab585348552415d`, 80-byte ct = 5 blocks); the `enter` between the two halves is
+an instruction marker, not data (AES2 alone is not `Salted__`, confirming it is a
+continuation). The two `shabef`(sha256) tokens bracket the blob — the password is
+sha256-shaped, applied to text that is literally on the page ("in front of your
+eyes"): the plain tokens `ourfirsthintisyourlastcommand` / `anstoo` plus the
+labels `matrixsumlist` / `lastwordsbeforearchichoice` / `thispassword`.
+
+## Finding 17 — the phase-3.2 Beaufort speech IS the final-stage instruction set  ✓ NEW
+
+The Architect monologue (Beaufort key `THEMATRIXHASYOU`) ends with an explicit
+recipe for exactly this stage:
+
+  "…return to the source codes … **reinserting the prime basics** … you will be
+   required to select from over **twenty-three ciphers, sixteen encryptions,
+   and/or seven intertwined passwords** to find the actual private key. note that
+   **also brute forcing might be required** … ciao bella o"
+
+Concrete mappings (new):
+  * **twenty-three ciphers** ↔ the 23-char `SUM = DIFNLREV9E6VARXVF5UF8PE`
+    (STR_A b-separator letter-sum). 23 is not a coincidence.
+  * **reinserting the prime basics** ↔ primes **2,3,5,7** (creator-confirmed,
+    2021-03-01) used as position indices.
+  * **seven intertwined passwords** ↔ "intertwined" = the **yinyang** roadmap
+    step = interleave of (up to) seven password streams.
+  * **brute forcing might be required** ↔ the final passphrase is expected to be
+    short / from a constrained space, not a long derived string.
+
+## Session 2026-06-14 — exhaustive password search, no hit (negative results)
+
+Tested against all three real blobs (salph 96B, p32cell18 96B, cosmic 1328B)
+under EVP-MD5, EVP-SHA256, **and PBKDF2** (sha1/256/512, iters 1/1k/10k/100k),
+AES-{128,192,256}-CBC, passphrase forms {raw, sha256-hex, sha256-HEX, sha256-bin,
+md5-hex}, strict PKCS#7 + printable/nested-Salted__ acceptance:
+
+  * every page plain token and all 127 of their combinations;
+  * SUM / OTP-PRE / OTP-TAIL(64) / two-time-pad M2 / bifid payload, raw + sha256;
+  * yin-yang **interleavings** and **OTP-chains** of {SUM, PRE, TAIL, bifid,
+    ciaobellao, thematrixhasyou, theseedisplanted, …} pairwise + triple;
+  * GSMG URL-hash construction `sha256("GSMGIO5BTCPUZZLECHALLENGE"+X)` (passphrase
+    and direct hex-key) for every X;
+  * Caesar/Vigenère reads of PRE and TAIL (no English surfaces — they are
+    high-entropy key material, with `YOUWON` as an embedded confirmation marker);
+  * prime-position (2,3,5,7,…) extractions from the Beaufort speech and the URL.
+
+None produced valid-padding readable plaintext. The 64-char post-`YOUWON` tail
+and the keyed-Polybius re-read of the bifid `(wide,narrow∈bcde)` pairs (Finding
+15) remain the two concrete open sub-problems.
+
 ## Honest status
 
 This is the SalPhaseIon/Cosmic-Duality wall — the GSMG puzzle has been stuck
-here for years. The findings above are real and reproduced from first principles,
-but the password derivation (the ordered roadmap pipeline ending in
-yinyang/"in front of your eyes") is not yet pinned to a concrete string, and the
-large Cosmic Duality ciphertext still needs a byte-accurate transcription. No key
-recovered.
+here for years. The findings above are real and reproduced from first principles.
+The page is now fully reconstructed (Finding 16) and the creator's own recipe is
+decoded (Finding 17), but the final passphrase string is still not pinned, and
+the large Cosmic Duality ciphertext still needs a byte-accurate transcription.
+**No key recovered.**
