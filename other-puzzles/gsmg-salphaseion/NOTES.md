@@ -589,10 +589,21 @@ From a Telegram dump (other solvers + creator). Signal extracted and tested:
     told you we could make it like none of this ever happened") + "3rd door" →
     tested as answers → no hit.
 
+  * **NEW mechanism (mine):** `(digit_i − prime_i) mod 5 + 1` maps STR_A's whole
+    1-9 digit string into **1-5** — i.e. "Matrix **and** prime numbers" literally
+    combines the digit string with the prime sequence to make it **fit a 5×5
+    Polybius** (resolving Master's "doesn't fit"). 45 coordinate-pairs result.
+    Decoded under standard + keyword squares (thematrixhasyou / salphaseion /
+    matrixsumlist / thispassword / salvation / door / tapcode / …) it does NOT
+    yield readable English, and feeding all 192 Polybius outputs as AES answers
+    (double-hash) → no hit. So the *combine-then-Polybius* shape is plausible but
+    the **square keyword** (or a further layer) is still unknown.
+
 Net: the experienced community is stuck on the **same** wall ("something is still
-missing"/"many somethings"). The non-obvious twist that turns the Polybius/
-straddle + matrix-primes + double-hash recipe into the actual key is the missing
-piece — for them and for me.
+missing"/"many somethings"). The concrete open lead is the **Polybius square key**
+for the prime-combined coordinates; the recipe shape (matrix ⊕ primes → 5×5
+Polybius → double-hash) is now plausible but its key is unrecovered — for them
+and for me.
 
 ## Session-2 additional negatives
 
