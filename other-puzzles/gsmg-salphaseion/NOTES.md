@@ -555,11 +555,17 @@ concatenation templates (`SUM+w`, `w+SUM`, `w+youwon`, `w+salvation`, capitalise
 word+artifact concat) for either blob; it is a specifically-constructed string
 (the yin-yang output).
 
-## Honest status
+## Finding 20 — `cosmic-duality-book.png` decoded: yin-yang IS two cosmic halves  ✓ NEW
 
-This is the SalPhaseIon/Cosmic-Duality wall — stuck for years. Everything above is
-reproduced from first principles. Fully pinned: the page (F16), the creator's
-recipe (F17), the matrix split vs the owner's hint (F18), both blob configs +
-exhaustive dictionary space (F19). The crypto is solved; the **only** unknown is
-the answer string the *yin-yang* step constructs — an operation not recoverable
-from the repo's materials and unsolved by the community. **No key recovered.**
+The hint image is a parody Time-Life "**MYSTERIES OF THE UNKNOWN**" book cover
+titled "**Cosmic Duality**", whose art is a **yin-yang formed from two cosmic
+(galaxy) halves**. This visually confirms the roadmap's `yinyang` step ≡ Cosmic
+Duality ≡ **two intertwined halves** (cf. INCASE "half and better half" = two
+keys; `YOUWON` splits STR_A's OTP into PRE(21)+TAIL(64)). It does NOT, however,
+reveal the *combination rule* (how the two halves merge into the answer).
+
+Session-2 additional negatives (all with privkey→GSMG-address check): brain-wallet
+`sha256(artifact)` over every decoded string; the 64-char post-YOUWON tail encoded
+to 32 bytes by pair/nibble/base26/raw/sha256 schemes; direct STR_B reads
+(hex-pair, dec-pair, dec-triple, 9×9 Polybius); alternative SUM separators/maps.
+**None** hit. The yin-yang *combination operation* remains the sole missing piece.
