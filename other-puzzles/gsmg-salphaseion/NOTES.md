@@ -539,10 +539,27 @@ pinned and round-trip-verified; the sole remaining unknown is the *answer string
 which the yin-yang step is supposed to construct — that exact operation is still
 not recovered.
 
+## Finding 19 — blob configs nailed + full dictionary attacks exhausted  ✓ NEW
+
+Blob structure (both verified `Salted__`, ct%16==0):
+  * **salph**: `AES1‖AES2` = salt `3ab585348552415d`, **80-byte** ct (5 blocks).
+    NOTE: `AES1` *alone* is also a complete valid blob (salt same, **32-byte** ct,
+    2 blocks) — tested both configs; neither opens.
+  * **cosmic**: salt `2d3f6fe06dc950e6`, **1328-byte** ct (83 blocks).
+
+Dictionary attack (370 k English words, `words_alpha`) under the verified scheme
+(`sha256hex(w)`→EVP-sha256-AES256) + CryptoJS default (raw word→EVP-md5), both
+salph configs **and** the cosmic blob: **no hit**. Extended salph with 3.3 M
+concatenation templates (`SUM+w`, `w+SUM`, `w+youwon`, `w+salvation`, capitalised):
+**no hit**. ⇒ the answer is **not a single dictionary word** (nor a trivial
+word+artifact concat) for either blob; it is a specifically-constructed string
+(the yin-yang output).
+
 ## Honest status
 
-This is the SalPhaseIon/Cosmic-Duality wall — the GSMG puzzle has been stuck
-here for years. The findings above are real and reproduced from first principles.
-The page is fully reconstructed (Finding 16), the creator's recipe decoded
-(Finding 17), and the phase-0 matrix split confirmed against the owner's own
-hint (Finding 18). The final passphrase is still not pinned. **No key recovered.**
+This is the SalPhaseIon/Cosmic-Duality wall — stuck for years. Everything above is
+reproduced from first principles. Fully pinned: the page (F16), the creator's
+recipe (F17), the matrix split vs the owner's hint (F18), both blob configs +
+exhaustive dictionary space (F19). The crypto is solved; the **only** unknown is
+the answer string the *yin-yang* step constructs — an operation not recoverable
+from the repo's materials and unsolved by the community. **No key recovered.**
