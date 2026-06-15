@@ -1,5 +1,32 @@
 # GSMG.IO 5 BTC Puzzle — SalPhaseIon / Cosmic Duality stage (UNSOLVED)
 
+> ## MASTER STATUS (read first — consolidated from the FULL creator log)
+>
+> **Creator-CONFIRMED (highest confidence):**
+> - **gnomad's direction is RIGHT** — creator 2026-03-03 "Looks at gnomad 😏 / **Bingo**".
+>   gnomad's claim: phase-0 matrix has **9 yellow + 15 blue = 24** cells (derivable
+>   from primes 2,3: `3÷2×2×3=9`, `3×(2+3)=15`, `(2+3)×(2×3)−(2×3)=24`) + "**The
+>   matrix has you**". ⇒ the answer reuses the **phase-0 matrix** (poem: "go back to
+>   the first puzzle piece"), with **primes**.
+> - Scheme: answer → **sha256** (matched vs a hash); "**double hash**" (stranger).
+> - **Prime numbers required**; "some characters need to be **zeroed out**".
+> - **Two keys / a split** ("half and better half" = the two addresses).
+>
+> **Creator GIVEAWAYS (deliberate):**
+> - "the only **date** I give away is the **expiry date of Neo's passport**" = **09/11/01**
+>   (Matrix). A VIC cipher needs a date-key → likely the phase-3.2 VIC date.
+> - "**In the eye of the beholder**" = the **FEFEFE** off-white cell at URL pos **21**.
+> - "another **door** on **{1},{4},{21}**"; "Only **-41,-17** matters"; "**First or zero**".
+> - "**theory of everything**" → "**42**"; "you only need the **last number of pi**";
+>   "I'll go for **ASCII 127**" (127 = prime / DEL); "yin-yang → solved same day".
+>
+> **OPEN (the wall):** the exact operation that turns {matrix + primes + zeroing +
+> double-hash} into the key(s). Confirmed-correct *neighborhood*, unrecovered *step*.
+>
+> **SUPERSEDED / likely-wrong:** the STR_A−INCASE "OTP→YOUWON" path — Denis Golovkin
+> (serious solver) states **OTP was never used** in the puzzle; treat YOUWON as a
+> possible coincidence/marker, not the mechanism. See Finding 23 for the full log.
+
 The main `Bahs` repo documents the GSMG.IO puzzle solved through **Phase 3.2**
 (the EBCDIC→Beaufort→VIC chain yielding the "INCASE…" key). This folder works
 the **next open frontier**: the two SalPhaseIon ciphertext strings, reproduced
@@ -644,3 +671,26 @@ Additional negatives (all with privkey→GSMG-address check): brain-wallet
 to 32 bytes by pair/nibble/base26/raw/sha256 schemes; direct STR_B reads
 (hex-pair, dec-pair, dec-triple, 9×9 Polybius); alternative SUM separators/maps.
 **None** hit. The yin-yang *combination operation* remains the sole missing piece.
+
+## Finding 23 — FULL creator log reviewed (2019→2026), new hints + corrections  ✓ NEW
+
+Read all 427 Jrk messages end-to-end. Beyond Finding 22, the late hints:
+  * **2026-03-03 MSG 60309/60312:** "**Looks at gnomad 😏**" → "**Bingo**" — creator
+    CONFIRMS gnomad's matrix line (9 yellow/15 blue/24 from primes 2,3 + "the matrix
+    has you"). This is the strongest steer we have: the answer **reuses the phase-0
+    matrix with primes**. (Tested the widest matrix-derived net — blue/yellow lists,
+    prime-indexed picks, zeroed variants, counts 9/15/24 — × single+double-hash ×
+    AES + both addresses → still no hit; the *operation* is unrecovered.)
+  * **2024-11-29 MSG 32671:** "You only need the **last number of pi** and it might
+    get you somewhere." (cryptic; pi has no last digit — trick/troll or a finite-
+    representation reference.)
+  * **MSG 32613:** "I'll be going for **ASCII 127**" (127 = 31st prime / DEL / 7-bit).
+  * **2025-04-28 MSG 39224:** "Did anyone find yingyang? … when yingyang is reached,
+    2 hours max." (still unsolved as of 2025).
+  * **Two-keys confirmed indirectly:** "the **better half**" recurs (MSG 39241, 60324).
+  * 2025-12-31 binary = same "Happy new year, tiny hint <3" message (no new payload).
+
+**Correction (supersedes earlier framing):** Denis Golovkin states **OTP was never
+used**; our STR_A−INCASE→YOUWON is therefore suspect as a *mechanism* (YOUWON may be
+a coincidence/marker). Down-weight it; favor the creator-confirmed **matrix+primes**
+path and the Polybius/straddle read of STR_A.
