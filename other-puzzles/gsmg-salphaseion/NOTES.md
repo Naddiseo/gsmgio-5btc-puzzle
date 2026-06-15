@@ -564,7 +564,39 @@ Duality ≡ **two intertwined halves** (cf. INCASE "half and better half" = two
 keys; `YOUWON` splits STR_A's OTP into PRE(21)+TAIL(64)). It does NOT, however,
 reveal the *combination rule* (how the two halves merge into the answer).
 
-Session-2 additional negatives (all with privkey→GSMG-address check): brain-wallet
+## Finding 21 — community/creator transcript hints, tested  ✓ NEW
+
+From a Telegram dump (other solvers + creator). Signal extracted and tested:
+  * **Master**: STR_A "dbbi" → `a-i→1-9` digit string
+    `4229262833257298125259825775752522758852886212648256634226333726255775325439262667972555125`
+    — **cross-verified: identical** to my `ord(c)-96` mapping (91 digits, odd).
+    He calls it "another form of polybius square" but "**doesn't fit**" (91 odd;
+    digits run 1-9, so no 5×5). I built a **9-column straddling checkerboard**
+    (7 single + 2×9 double = 25 letters, the natural fit) and brute-forced both
+    blank positions over pi-person's alphabets (`etabcnqzkdsghmfjxluoryipvw` /
+    `cryzaloxibqefkdhvjsmpwgntu`) + keyword squares → **no readable output**, and
+    feeding all 324 straddle decodes as AES answers (double-hash scheme) → no hit.
+  * **Denis Golovkin**: "you wouldn't get any luck by using any **bare classic
+    cipher**" — confirmed: the Polybius/straddle direction the community is on
+    does NOT crack it bare; a twist is missing. He also showed gnomad's `9/15/24`
+    (= the matrix's 9 yellow + 15 blue cells) and that `3÷x·x·3=9` ∀x (yellow
+    count is invariant).
+  * **creator-side "stranger"**: the recipe = "**Matrix and prime numbers. Double
+    hash. And nothing.**" → tested broadly: every prime-extraction of the matrix/
+    URL, double-sha256 as passphrase AND as a direct AES key (Bitcoin HASH256)
+    with multiple IVs + privkey→address check → no hit.
+  * **Mr-Robot GIF** quotes ("is there something you want to tell me", "what if I
+    told you we could make it like none of this ever happened") + "3rd door" →
+    tested as answers → no hit.
+
+Net: the experienced community is stuck on the **same** wall ("something is still
+missing"/"many somethings"). The non-obvious twist that turns the Polybius/
+straddle + matrix-primes + double-hash recipe into the actual key is the missing
+piece — for them and for me.
+
+## Session-2 additional negatives
+
+Additional negatives (all with privkey→GSMG-address check): brain-wallet
 `sha256(artifact)` over every decoded string; the 64-char post-YOUWON tail encoded
 to 32 bytes by pair/nibble/base26/raw/sha256 schemes; direct STR_B reads
 (hex-pair, dec-pair, dec-triple, 9×9 Polybius); alternative SUM separators/maps.
