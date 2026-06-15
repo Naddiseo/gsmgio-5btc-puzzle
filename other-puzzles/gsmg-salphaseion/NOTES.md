@@ -605,6 +605,38 @@ for the prime-combined coordinates; the recipe shape (matrix ⊕ primes → 5×5
 Polybius → double-hash) is now plausible but its key is unrecovered — for them
 and for me.
 
+## Finding 22 — consolidated CREATOR (Jrk Bgrt) hint inventory  ✓ NEW, AUTHORITATIVE
+
+From the creator's full 427-message log. The authoritative, deliberate hints:
+
+  * **MSG 8048 (2021-12-31):** "The only **date** I give away is the **expiry date
+    of neo's passport**." (reinforced MSG 8516). In The Matrix, Thomas Anderson's
+    passport expires **Sept 11, 2001 (09/11/01)**. A VIC cipher needs a date key —
+    phase-3.2's unsolved VIC is the likely consumer. Tested 35 date formats as the
+    salph answer directly → no hit (so it's a *component*, not the whole answer).
+  * **MSG 8000 (2021-12-26):** "**prime numbers** … definitely required to proceed.
+    Furthermore … some characters need to be **'zeroed out'**."
+  * **MSG 9593 / 8491:** "**In the eye of the beholder**" + "expiration date of his
+    passport" → ties to the **FEFEFE marker** (the off-white cell at URL pos **21**).
+  * **MSG 6884 (2021-03-31):** "another **door** might be found on **{1},{4},{21}**".
+    (VIC used keys 1 & 4; 21 = FEFEFE pos.) MSG 1837: "Only **-41,-17** matters"
+    (Decentraland parcel). MSG 4105: "**First or zero**" (0- vs 1-indexing).
+  * **MSG 8354 / 8385:** "**theory of everything**" is a valid path → "**42**".
+  * **MSG 9047:** "Globally Supporting My Generation" (= GSMG).
+  * **MSG 234/257:** answers are **sha256-hashed** and matched vs a hash (scheme
+    confirmed). MSG 7834: "the solver will find a way to **'decrypt'** it."
+  * **stranger (creator-side):** "**Matrix and prime numbers. Double hash.**"
+  * **MSG 9599:** "Once you hit a **'ying yang'**, you'll solve it the same day."
+  * The 2023-02-23 binary (MSG 8446) decodes (reversed bit-order) to the roadmap:
+    `yellowblueprimes matrixsumlist lastwordsbeforearchichoice yinyang … the
+    password is in front of your eyes but youre not seeing it … very last step is
+    a true giveaway`.
+
+Tested (no hit): Neo-date × all formats; date+roadmap+theory concatenations (≈650
+combos); URL prime-extraction with yellow "zeroed out" × double-hash; {1},{4},{21}
+index picks. The hint *shape* is complete; the exact assembly is the missing piece.
+**Most concrete untested lead: Neo's passport date as the phase-3.2 VIC date-key.**
+
 ## Session-2 additional negatives
 
 Additional negatives (all with privkey→GSMG-address check): brain-wallet
