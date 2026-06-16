@@ -773,7 +773,26 @@ speech (1/0-idx, ±spaces), Janusz number in all the forms above, matrix-word �
 the precise **yinyang** assembly — is exactly where the expert community also stalls
 (creator: salvation only "partly" passed).
 
-**Structural insight — what the "four zeros / four characters" are (NEW):** the URL
+## Finding 26 — image review (user-provided working notes + puzzle art)  ✓ NEW
+
+Reviewed the uploaded images:
+  * **`matrixsumlist` = `IZLKESEEDQPPEN` CONFIRMED** by a worked-out note image: the
+    23 b/y-prime groups of `dbbi` (db-2,b-3,ib-5,fb-7,hccbe-11,… each segment a prime
+    length, `b`=blue, `be`=25=yellow) are inserted **counter-clockwise into a 14×14
+    matrix** so that prime positions match the original matrix's yellow/blue; **row
+    sums (mod 26)+'A' → `IZLKESEEDQPPEN`**, which contains the validation word
+    **`SEED`** in the middle (I·Z·L·K·E·**SEED**·Q·P·P·E·N). (My in-session
+    reconstruction reproduces this exactly. The note shows only the *row*-sum word, so
+    `matrixsumlist` ≡ `IZLKESEEDQPPEN`; my column word `GBCXQJCWMUHFEV` may be extra.)
+  * **The SalPhaseIon page art is titled "FIND THE SEED PHRASE"** ("WELCOME TO THE
+    BRAVE NEW WORLD") — so the final secret is a **BIP-39 seed phrase**, not (only) a
+    raw hex key. This re-frames the `btcseed` bifid payload (90 chars / 45
+    `(wide,narrow∈bcde)` pairs) as the likely seed encoding, and explains the `SEED`
+    marker inside `IZLKESEEDQPPEN`.
+  * Note: one uploaded grid image (`crypto.satori.digital` / `1cryptoBe…`) is a
+    **different puzzle** (Satori/BTCRYPTO), not GSMG — ignore for this task.
+
+## Structural insight — what the "four zeros / four characters" are (NEW): the URL
 `gsmg.io/theseedisplanted` is **24 bytes = 192 bits**; a **14×14 spiral = 196 cells**,
 so the last **4 cells are empty = the four omitted zeros** (creator: "some characters
 need to be **zeroed out**"; Janusz: "in the first phase **four zeros were omitted from
