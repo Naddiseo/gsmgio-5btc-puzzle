@@ -694,3 +694,35 @@ Read all 427 Jrk messages end-to-end. Beyond Finding 22, the late hints:
 used**; our STR_A−INCASE→YOUWON is therefore suspect as a *mechanism* (YOUWON may be
 a coincidence/marker). Down-weight it; favor the creator-confirmed **matrix+primes**
 path and the Polybius/straddle read of STR_A.
+
+## Finding 24 — the phase-3.2 "VIC" block is a period-15 Beaufort; DECODED  ✓ NEW, VERIFIED
+
+The phase-3.2 plaintext (decrypted with the known answer
+`jacquefrescogiveitjustonesecondheisenbergsuncertaintyprinciple`) contains, between
+the short architect intro and the 149-digit number, a **1539-char block of 26
+distinct symbols** (`ÎÈ,Îø%_Áøø…`). Prior notes called it "the unsolved VIC block."
+It is **not** raw VIC (which is digits); it is a **monoalphabetic-symbol-mapped,
+periodic polyalphabetic** cipher:
+
+  * **Index-of-coincidence period analysis** spikes hard at **L=15** (IoC 0.0645,
+    English-like) and L=30 (its multiple) — fundamental key length **15**.
+  * Solved as **Beaufort, key `THEMATRIXHASYOU`** (15 letters; the phase-3.2
+    Beaufort key), with the 26 symbols mapped to the plaintext alphabet by a
+    hill-climbed bijection (quadgram fitness). `P = (K − h(symbol)) mod 26`.
+  * Tooling: `vic_solve2.py` (keyed) found it cleanly (score −7656 vs −11000 noise);
+    `vic_solve.py` / `vic_solve3.py` are the general (no-key) hill-climbers.
+
+The decode is **clean English** — it recovers the full Architect monologue (the
+previously-known short speech is a fragment of it) and confirms the 23/16/7 recipe
+("return to the source codes / reinserting the prime basics / twenty-three ciphers,
+sixteen encryptions, seven intertwined passwords / brute forcing might be required").
+
+**Significance:** confirms the Beaufort + `THEMATRIXHASYOU` machinery, but the
+monologue itself contains **no new password** (tested every phrase / n-gram /
+prime-index of it, plus the 149-digit number in ~10 parse schemes, against
+cell-18 / salph / cosmic under the verified scheme → **no hit**). The cell-18 answer
+is therefore encoded by the phase-3.2 **"last words" board clue + 149-digit number**,
+still open: the clue's bracketed words walk the VIC alphabet in groups (fubcd=0-4,
+orale=5-9, thingky=10-16, mvps=17-20, zjqwx=21-25) and reference a board "as wide as
+the first one seen" (a width tie-back to the phase-0 matrix). Decoding the 149-number
+against that board is the concrete open sub-problem.

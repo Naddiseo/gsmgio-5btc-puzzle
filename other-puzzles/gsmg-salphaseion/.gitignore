@@ -1,3 +1,7 @@
 __pycache__/
 *.pyc
 MATCH.txt
+vic_decoded*.txt
+MATCH.txt
+__pycache__/
+cell18_attack.py
