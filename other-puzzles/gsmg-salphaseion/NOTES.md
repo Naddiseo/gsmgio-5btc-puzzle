@@ -772,3 +772,14 @@ speech (1/0-idx, ±spaces), Janusz number in all the forms above, matrix-word �
 `THEMATRIXHASYOU` (Beaufort/Vigenère), matrix words as brainwallet keys. The wall —
 the precise **yinyang** assembly — is exactly where the expert community also stalls
 (creator: salvation only "partly" passed).
+
+**Structural insight — what the "four zeros / four characters" are (NEW):** the URL
+`gsmg.io/theseedisplanted` is **24 bytes = 192 bits**; a **14×14 spiral = 196 cells**,
+so the last **4 cells are empty = the four omitted zeros** (creator: "some characters
+need to be **zeroed out**"; Janusz: "in the first phase **four zeros were omitted from
+the matrix**"). Reconstructing that 14×14 bit-spiral (MSB-first, byte `k`'s LSB at
+spiral pos `8k`) reproduces the **exact** Finding-6/18 sum-lists:
+row=`[6,10,8,7,6,6,5,4,9,9,7,8,7,9]`, col=`[8,10,8,10,8,7,3,6,7,5,9,6,6,8]` (each
+totals 101 = #set-bits). So the phase-0 `matrixsumlist` matrix is now **fully pinned**;
+Janusz's 59-digit number is *not* this concatenation (his own bad calc). The remaining
+unknown is purely how `yinyang` folds these sums + last-words into the salph answer.
