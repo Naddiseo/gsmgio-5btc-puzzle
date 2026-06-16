@@ -775,7 +775,7 @@ the precise **yinyang** assembly — is exactly where the expert community also 
 
 ## Finding 26 — image review (user-provided working notes + puzzle art)  ✓ NEW
 
-Reviewed the uploaded images:
+Reviewed the GSMG-relevant uploaded images:
   * **`matrixsumlist` = `IZLKESEEDQPPEN` CONFIRMED** by a worked-out note image: the
     23 b/y-prime groups of `dbbi` (db-2,b-3,ib-5,fb-7,hccbe-11,… each segment a prime
     length, `b`=blue, `be`=25=yellow) are inserted **counter-clockwise into a 14×14
@@ -784,13 +784,13 @@ Reviewed the uploaded images:
     **`SEED`** in the middle (I·Z·L·K·E·**SEED**·Q·P·P·E·N). (My in-session
     reconstruction reproduces this exactly. The note shows only the *row*-sum word, so
     `matrixsumlist` ≡ `IZLKESEEDQPPEN`; my column word `GBCXQJCWMUHFEV` may be extra.)
-  * **The SalPhaseIon page art is titled "FIND THE SEED PHRASE"** ("WELCOME TO THE
-    BRAVE NEW WORLD") — so the final secret is a **BIP-39 seed phrase**, not (only) a
-    raw hex key. This re-frames the `btcseed` bifid payload (90 chars / 45
-    `(wide,narrow∈bcde)` pairs) as the likely seed encoding, and explains the `SEED`
-    marker inside `IZLKESEEDQPPEN`.
-  * Note: one uploaded grid image (`crypto.satori.digital` / `1cryptoBe…`) is a
-    **different puzzle** (Satori/BTCRYPTO), not GSMG — ignore for this task.
+  * The official `puzzle.png` (GSMG.IO 5 BTC, addr `1GSMG…`) and the phase-0 matrix
+    image match the documented data — no new info beyond the above.
+
+**NOT GSMG — disregard (separate puzzles, per puzzle owner 2026-06-16):** the
+`crypto.satori.digital` / `1cryptoBe…` grid (Satori/BTCRYPTO), and the **"WELCOME TO
+THE BRAVE NEW WORLD / FIND THE SEED PHRASE"** collage. These are *different puzzles*;
+do **not** import their themes (e.g. "find the seed phrase") into GSMG reasoning.
 
 ## Structural insight — what the "four zeros / four characters" are (NEW): the URL
 `gsmg.io/theseedisplanted` is **24 bytes = 192 bits**; a **14×14 spiral = 196 cells**,
