@@ -2,6 +2,11 @@
 
 > ## MASTER STATUS (read first — consolidated from the FULL creator log)
 >
+> **Solved this round (verified):** the phase-3.2 "VIC block" (the 1539-char,
+> 26-symbol block) = **period-15 Beaufort, key `THEMATRIXHASYOU`** → the full
+> Architect monologue (Finding 24). Also: **SalPhaseIon ≡ "salvation"**, which the
+> creator says has been passed **"Partly"** (Finding 25). Wall is still the `yinyang` step.
+>
 > **Creator-CONFIRMED (highest confidence):**
 > - **gnomad's direction is RIGHT** — creator 2026-03-03 "Looks at gnomad 😏 / **Bingo**".
 >   gnomad's claim: phase-0 matrix has **9 yellow + 15 blue = 24** cells (derivable
@@ -726,3 +731,44 @@ still open: the clue's bracketed words walk the VIC alphabet in groups (fubcd=0-
 orale=5-9, thingky=10-16, mvps=17-20, zjqwx=21-25) and reference a board "as wide as
 the first one seen" (a width tie-back to the phase-0 matrix). Decoding the 149-number
 against that board is the concrete open sub-problem.
+
+## Finding 25 — full community Telegram log (Jan–Aug 2023) reviewed  ✓ NEW
+
+Read the entire community-solver chat (Zil, RB, 0xColombo, Janusz Baran, semaj,
+ArchOptic, et al.) alongside the creator (Jrk Bgrt). The serious solvers are stuck on
+the **exact same wall** we are (the SalPhaseIon AES blobs + `matrixsumlist`). New,
+useful signal:
+
+  * **SalPhaseIon ≡ "salvation"** — solver consensus (2023-08-05): "salphasion" is
+    pronounced like *salvation* (phase added to salvation), not "salvation of Zion".
+    Creator (2023-08-06), asked "Has anyone passed the **salvation** part?", replied
+    **"Partly."** ⇒ the salph blob is the *salvation* stage and is *partially* cracked.
+  * **`dbbib` is decryptable** — creator: "dbbib most definitely is [decryptable]."
+    And (2023-08-06) "**No need [for another URL]. You have all the info.**"
+  * **STR_A prime structure (verified by solvers):** in the first 12 chars, `b`
+    appears *only* at prime positions (2,3,5,7,11) and nowhere else — odds ~1 in
+    3.2e11, so intentional. And "measured at **`be`**, every segment length is
+    **prime**." This is the `yellowblueprimes` / "reinserting the prime basics"
+    structure and matches our b-separator SUM decode (groups → primes).
+  * **Janusz Baran's `matrixsumlist` number (2023-02-02, UNVERIFIED, he was "drunk"):**
+    "start from the **101 room** (the **#fefefe** cell, URL pos 21), spiral, and you
+    get sumlist = `40585734329412479690520338541901772425587069158131163878976`;
+    **in the first phase four zeros were omitted from the matrix**." Tested here: as a
+    private key (raw + all C(63,4)=595 665 four-zero insertions → no GSMG address); as
+    a salph/cosmic/cell-18 AES answer (raw, sha256hex/bin, reversed, hex) → no hit.
+    Structurally it parses as 2-digit values (…52 **03** 38…19 **01** 77…), consistent
+    with a concatenated sum-list, but the exact matrix/omission rule is unrecovered.
+  * **"hundred fourty" (140):** recurs as a counterpart to "42 / theory of everything";
+    one solver: "we might be looking for a **140-char password**." Our VIC-decoded
+    monologue independently contains "*worth **hundred fourty** of the investment*."
+    (The two-doors "last words" speech normalises to **137** chars — near 140.)
+  * **"reinsert the prime basics" reading (solver):** go back to the source codes, use
+    **SHA-256**, and reinsert the prime-basics text into the hash → "salvation".
+  * Creator's load-bearing hint, restated 2023-08-06: **"Once you hit a 'ying yang',
+    you'll be able to solve it the same day."**
+
+Tested this cycle from the above (no hit): `salvation` family, prime-indexed two-doors
+speech (1/0-idx, ±spaces), Janusz number in all the forms above, matrix-word ⊕
+`THEMATRIXHASYOU` (Beaufort/Vigenère), matrix words as brainwallet keys. The wall —
+the precise **yinyang** assembly — is exactly where the expert community also stalls
+(creator: salvation only "partly" passed).
