@@ -43,6 +43,8 @@ If you find this useful, please donate BTC at [bc1qla7lmz3guzz3cezhfl72r0w546a4g
   20. [2023-08-06](#2023-08-06-hint): Official Hint - The puzzle speaks for me
   21. [2024-04-19](#2024-04-19): Second Halving
   22. [2026-01-01](#2026-01-01-new-years-hint): 2026 New Year's Hint
+  23. [2026-07-12](#2026-07-12-hint): Official Hint - my close friends
+  24. [2026-07-12](#2026-07-12-other-message): other message
 
 ![puzzle image](./puzzle.png)
 
@@ -383,3 +385,20 @@ Decoded:
 - Each message is purposely 1 minute apart
 - Again, we're given binary text
 - There's mention of a hint, but what the hint is referring to is ambiguous.
+
+
+## 2026-07-12 hint
+
+![July 2026 Hint](hints/2026-07-12-official-hint.png)
+
+> @Jrk Bgrk
+>
+> My close friends have the best chance of solving it (a few tried). But they don't have the skills some of you do.
+>
+> NOTE: that is a hint.
+
+
+## 2026-07-12 Other message
+
+![July 2026 other message](hints/2026-07-12-other-msg.png)
+
