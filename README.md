@@ -106,7 +106,7 @@ Useful OpenSSL flags:
 * Brute force is used to find part 5 being "11110", the real path/reasoning hasn't been discovered or disclosed.
 * Part 6 is a reference to the Genesis Block of bitcoin, and directly to a particular line in the source code leading to "0x736B6E616220726F662074756F6C69616220646E6F63657320666F206B6E697262206E6F20726F6C6C65636E61684320393030322F6E614A2F33302073656D695420656854" as part 6
 * Part 7 is a chess puzzle where a white piece must be moved without causing check-mate. The final solution is "B5KR/1r5B/2R5/2b1p1p1/2P1k1P1/1p2P2p/1P2P2P/3N1N2 b - - 0 1"
-* Putting everything together with the case hints and white space hints we get the final password as "causalitySafenetLunaHSM111100x736B6E616220726F662074756F6C69616220646E6F63657320666F206B6E697262206E6F20726F6C6C65636E61684320393030322F6E614A2F33302073656D695420656854B5KR"
+* Putting everything together with the case hints and white space hints we get the final password as "causalitySafenetLunaHSM111100x736B6E616220726F662074756F6C69616220646E6F63657320666F206B6E697262206E6F20726F6C6C65636E61684320393030322F6E614A2F33302073656D695420656854B5KR/1r5B/2R5/2b1p1p1/2P1k1P1/1p2P2p/1P2P2P/3N1N2 b - - 0 1"
 * sha256 of that password is the key to decrypting phase 3
 
 
