@@ -184,7 +184,25 @@ It might have shown you only one door, beware that the rabbits nest may contain 
 Hush hush.
 ```
 
-Unfortunately, no one publicly managed to decode it
+Unfortunately, no one publicly managed to decode it.
+
+### Note on "Yellow has a number and so does Blue"
+
+The two numbers appear to be 9 and 15, and they resolve to something already known rather than to new input.
+
+Sampling `puzzle.png` on the 14x14 grid gives 9 yellow cells and 15 blue. Under the counter-clockwise spiral used in Phase 0, numbering from 0, all 24 coloured cells land on indices congruent to 7 mod 8, which is the last bit of each byte. Reading blue as 1 and yellow as 0 along those 24 positions:
+
+```
+111101110011110110010010
+```
+
+and the low bit of each character of `gsmg.io/theseedisplanted`:
+
+```
+111101110011110110010010
+```
+
+The strings match, with the 15 blue cells on the 15 one-bits and the 9 yellow on the 9 zero-bits. So the colours restate the URL's low bits rather than carrying a separate value, which rules this reading out as a new input to `yellowblueprimes`. Recorded so it does not get repeated.
 
 ## 2020-02-20 Hint
 
@@ -245,6 +263,14 @@ We get confirmation that spelling errors are not significant.
 And we find out that there is a "prime part"
 
 ![Alt text](hints/2021-03-01-primes.png)
+
+### Note on the "fefefe is 101 010" remark
+
+In the same 2021-03-01 conversation a solver (not the creator) writes "hundred FOUR = 104 is the fefefe square" and "fefefe is 101 010". The second part is hex digit parity: F is 15, odd, so 1; E is 14, even, so 0. `FEFEFE` therefore gives `101010`, which is 42.
+
+The same rule on the grid's other two colours gives `#FFF200` -> `111000` and `#3F48CC` -> `110000`.
+
+This explains the remark, but note it is a solver's claim rather than an official hint, and the `104` half of it does not agree with the cell's spiral index.
 
 ## 2021-03-14
 
